@@ -32,12 +32,15 @@ class usersWithTasks {
 		$sql = "SELECT users.uid,users.usershortname FROM users,tasks WHERE tasks.uid = users.uid and pid=".$this->pid." GROUP BY users.uid";
 		$result = $GLOBALS['DB']->query($sql);
 	    $this->userCount = $result->num_rows; //ANZAHL USER für Project
-		
+		$lastTR = "";		
 		$this->userTasks = "";
 		$i = 1;
 	    while ($singleUser = $result->fetch_array())
 	    {
-			$this->userTasks .= "<tr class='".$this->projectColor." userTaskRow".$i."'>";
+		    if ($i == $this->userCount) {
+			    $lastTR = "lastTR";
+		    }
+			$this->userTasks .= "<tr class='".$this->projectColor." ".$lastTR." userTaskRow".$i."'>";
 			$userContent = new tasks($this->pid,$singleUser['uid'],$singleUser['usershortname']);
 			$this->userTasks .= $userContent->getTasksfromDB();
 			$this->userTasks .= "</tr>";
@@ -46,7 +49,7 @@ class usersWithTasks {
 		if($i<5){
 			$j = 5 - $i;
 			for($q = 0;$q<=$j;$q++){
-//not READY				$this->userTasks .= "<tr><td>&nbsp;</td></tr>";
+				//not READY		$this->userTasks .= "<tr><td>&nbsp;</td></tr>";
 			}
 		}
 	    return $this;

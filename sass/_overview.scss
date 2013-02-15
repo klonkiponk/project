@@ -1,0 +1,191 @@
+.overview {
+	position:relative;
+}
+
+tbody tr {
+//	background:#FFF;
+}
+
+table {
+//	border-bottom:1px solid #999;
+	border-collapse: separate;
+}
+
+.calendarWeek {
+	
+	border: 1px solid #C2C2C2;
+	border-bottom: 1px solid #C2C2C2;
+	border-left:none;
+	padding:3px 0;
+	text-align:center;
+	color:#666;
+	background:#fff;
+}
+
+td {
+	height:20px;
+	border-collapse:collapse;
+}
+
+.calendarDay {
+	//border-left:1px solid #999;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	height:27px;
+	color:#666;
+	font-size:0.8em;
+	vertical-align:top;
+	text-align:center;
+	width:20px;
+	padding-top:3px;
+	background:#fff;
+}
+
+.calendarMonth {
+	text-align:center;
+	border:1px solid #000;	
+	font-size: 1.2em;
+	padding:5px;
+	padding-top: 3px;
+	@include box-shadow(0px 0px 3px #666 inset);
+	@include text-shadow(1px 1px 1px #000);
+	/*background-color: rgb(125,126,125);
+	@include filter-gradient(#7d7e7d, #0e0e0e, vertical);
+	@include background-image(linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%));
+	*/
+	background:#333;
+	color:#fff;	
+}
+
+.projectSingleName {
+	width:85px;
+	border: 1px solid #999;
+	text-align:center;
+	color:#666;
+	vertical-align:middle;
+	font-size:0.8em;
+	overflow:hidden;
+	background:#fff;	
+}
+
+.projectMainDates{
+//	background:#666;
+	height:20px;
+	border:1px solid #000;
+//	border-top:1px solid #999;
+//	border-bottom:1px solid #999;
+	position:relative;
+	font-size:0.8em;
+	@include box-shadow(0px 0px 3px #666 inset);
+	background:#333;
+	
+}
+
+.taetigkeitsbox {
+	width:10px;
+	height:10px;
+	display:inline-block;
+}
+
+.emptyRow {
+	background:rgba(255,255,255,0);
+	border:none !important;
+	height:18px;
+}
+
+.primaryTaskRelativeDiv {
+	position:relative;
+	height:100%;
+	width:100%;
+//	background:fuchsia;
+}
+.primaryTaskName {
+	position:absolute;
+	right:-203px;
+	width:200px;
+	top:2px;
+	height:21px;
+	padding-top:1px;
+	color:#666;
+	/*background:fuchsia;*/
+}
+.projectDates {
+	/*border:1px solid fuchsia;
+	border-bottom:none;
+	border-top:none;
+	height:19px;
+	color:#666;
+	font-size:0.8em;
+	text-align:center;*/	
+}
+
+.singleTask {
+	text-align:center;
+//	border:1px solid #000;
+	font-size:0.8em;
+	@include text-shadow(1px 1px 1px #333);
+	//@include box-shadow(0px 1px 10px #fff inset);
+}
+
+.lastRow td.projectDates {
+	border-bottom:1px solid #666;
+}
+.primaryTaskRow td{
+}
+.primaryTasksRow .emptyTD {
+background-color: rgb(255,255,255);
+@include filter-gradient(#ffffff, #f6f6f6, vertical);
+@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%));
+border-bottom:1px solid #999;
+border-left:none;
+border-right:none;
+border-top:1px solid #999;
+
+	/*border:1px solid fuchsia;*/
+	
+	&.last {
+		border-right:1px solid #999;
+	}
+}
+.taetigkeitsbox {
+	margin-right: 5px;
+	@include box-shadow(0px 0px 3px #000);
+}
+
+.lastTR {
+	.emptyTD {
+		border-bottom:1px solid #999;
+	}
+}
+
+
+tr.weeks th:nth-child(2){
+	border-left:1px solid #999;
+}
+tr.days th:nth-child(2){
+	border-left:1px solid #999;	
+}
+
+.emptyTD {
+	border-right:1px solid #999;
+	/*border-top:1px solid #999;*/
+	//border-left:1px solid #999;
+	background:#fff;
+}
+
+
+
+.highlightDay {
+	background:rgba(0,0,0,0.2);
+	color:#333;
+}
+
+td.singleTask.highlightDay {
+	@include box-shadow(0px 1px 10px #000 inset);
+	background:blue !important;
+//	border:1px solid darkblue;
+}
+td.singleTask:hover {
+	cursor:pointer;
+}
+

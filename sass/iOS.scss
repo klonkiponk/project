@@ -1,0 +1,65 @@
+/* line 1, ../sass/iOS.scss */
+#globalHeader {
+  display: none;
+}
+
+/* line 4, ../sass/iOS.scss */
+footer {
+  display: none;
+}
+
+/* line 7, ../sass/iOS.scss */
+nav {
+  display: none;
+}
+
+
+.overview {
+	position:static;
+}
+
+
+form.next,form.previous {
+	position:absolute;
+	top:35%;
+	input[type=submit] {
+		width:100px;
+		&:hover {
+			cursor:pointer;
+			background:#F2F2F2;
+		}
+		&:active {
+			background:silver;
+		}
+	}
+	button {
+		background:none;
+		border:none;
+		font-size:5em;
+		color:#aaa;
+		width:60px;
+		padding:0;
+		height:200px;
+		background:rgba(255,255,255,0.4);
+		&:hover {
+			color:#666;
+			cursor:pointer;
+		}
+	}
+}
+form.next {
+	right:-2px;
+}
+form.previous {
+	left:-10px;
+}
+
+
+.wrapper {
+	margin:0 auto;
+	width:980px;
+//	border:1px solid silver;
+//	background:#F2F2F2;
+	padding:10px;
+	padding-top:0;
+}

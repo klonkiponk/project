@@ -16,7 +16,7 @@
 	}	
     $DB = db_connectToDb();
     
-	include_once('php/inc.jQuery.php');
+
 	
 	include_once('php/classes/class.glb.php');
 	include_once('php/classes/class.form.php');
@@ -27,4 +27,9 @@
 	include_once('php/classes/class.tasks.php');
 	include_once('php/classes/class.dateTimeOperations.php');
 	include_once('php/classes/class.editProject.php');
+	include_once('php/classes/class.editUser.php');
+	include_once('php/classes/class.personOverview.php');
+	include_once('php/classes/class.holidays.php');		
+
+	include_once('php/inc.jQuery.php');
 ?>

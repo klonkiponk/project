@@ -32,15 +32,15 @@ class tasks {
 		while ($task = $tasks->fetch_array())
 	    {
 			$return .= "<form method='post'>";
-			$return .= FORM::taskrolesSelectWithActive($task['trid']);
-			$return .= FORM::startDateInput($task['startdate'],"Task",$this->tid);
-			$return .= FORM::endDateInput($task['enddate'],"Task");
-			$return .= '<input type="hidden" name="tid" value="'.$this->tid.'">';
 			$return .= FORM::userSelectWithActive($this->uid);
-			$return .= '<input type="submit" name="Task" value="delete">';
-			$return .= '<input type="submit" name="Task" value="save">';
+			$return .= FORM::startDateInputForTasks($task['startdate'],"Task",$this->tid);
+			$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
+			$return .= FORM::endDateInputForTasks($task['enddate'],"Task",$this->tid);
+			$return .= FORM::taskrolesSelectWithActive($task['trid']);
+			$return .= '<input type="hidden" name="tid" value="'.$this->tid.'">';
 			$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
-			$return .= '<input type="hidden" name="editProject" value="true">';
+			$return .= FORM::submitButton("editTask","speichern","save");
+			$return .= FORM::submitButton("editTask","löschen","delete");			
 			$return .= "</form>";
 		}
 		return $return;
@@ -52,16 +52,24 @@ class tasks {
 		$sql = "SELECT tasks.trid,tasks.startdate,tasks.enddate,tasks.tid FROM tasks WHERE tasks.pid=".$this->pid." AND tasks.uid=".$this->uid." ORDER BY tasks.startdate";
 		$result = $GLOBALS['DB']->query($sql);
 		$return = "";
-		$actualDate = 0;
-		$endDate = 0;
+		$actualDate = GLB::$firstDay;
+		
+		//DEBUG echo "<br>STARTING ACTUALDATE for this USER: ".date("d.m.Y",$actualDate);
+		//DO THIS FOR EVERY SINGLE TASK
 	    while ($task = $result->fetch_array())
 	    {
+		
+			//convert the 2013-04-01 Strings to a calculateable Date
 			$startDate = strtotime($task['startdate']);
 			$endDate = strtotime($task['enddate']);
 			
-			//$startDate <= $this->lastDay AND $endDate >= $this->firstDay
+			//Set Startdates to Monday and Enddates to Friday
+			$startDate = GLB::setToMondayIfWeekDay($startDate);
+			$endDate = GLB::setToFridayIfWeekDay($endDate);
+			
 			if($startDate <= GLB::$lastDay AND $endDate >= GLB::$firstDay){
 				
+				//Cut Of The Tasks before the given TimeRange and After the Given TimeRange
 				if($startDate < GLB::$firstDay){
 					$startDate = GLB::$firstDay;
 				}
@@ -69,102 +77,42 @@ class tasks {
 					$endDate = GLB::$lastDay;
 				}
 				
+				//DEBUG
+				//echo "<br>startdate: ".date("d.m.Y",$startDate)."<br>";
+				//echo "enddate: ".date("d.m.Y",$endDate)."<br>";
+				//echo "tid: ".$task['tid']."<br>";
+				//DEBUG
 				
-				//create emptyTDs before the first Entry
-				if ($actualDate==0)
-				{
-					//$actualDateZero = strtotime("2013-01-01");
-					if (date("z",$startDate) !== date("z",GLB::$firstDay))
-					{
-						$duration = $this->calculateDuration($startDate,GLB::$firstDay);
-						$j = $actualDate;
-						//$return .= '<td colspan="'.$duration.'"></td>';
-						for($i = 1; $i <= $duration;$i++){
-							$return .= '<td class="emptyTD day'.date("d",$j).'"></td>';
-							$j = $j + 86400;
-						}
-						
-					}
-					
+				
+				if ($startDate !== $actualDate) {
+					$return .= GLB::generateEmptyTDs($startDate,$actualDate);
+					//now set actualDate to StartDate;
+					$actualDate = $startDate;
 				}
-				
-				if($actualDate!=0){
-					$actualDate = $actualDate+86400;
-					$j = $actualDate;
-					if (date("z",$startDate) !== date("z",$actualDate))
-					{
-						$duration = $this->calculateDuration($startDate,$actualDate);
-						//$return .= '<td colspan="'.$duration.'"></td>';
-						
-						for($i = 1; $i <= $duration;$i++){
-							$return .= '<td class="emptyTD day'.date("d",$j).'"></td>';
-							$j = $j + 86400;
-						}
-					}
-				}			
-				
-				$duration = $this->calculateDuration(($endDate+86400),$startDate);
 				
 				$trid = $task['trid'];
-				$trid = $this->getNameFromTaskRoles($trid);
-				$return .= "
+				$trid = GLB::getNameFromTaskRoles($trid);
 				
-				<td class='singleTask' colspan='".$duration."'>";
-				
-				if($duration == 1){
+
+				if ($startDate == $actualDate) {
+					/**********
 					
-				}else{
-				
-				$return .= "			
-					<span style='background:".$trid['color']."' class='".$trid['name']." taetigkeitsbox'>
-					</span>";
+					DO OUTPUT THE TASKS
+					
+					**********/
+					$return .= GLB::generateTask($endDate,$startDate,$task,$trid['color'],$this->username);
+					$actualDate = $endDate+86400;
+					$actualDate = GLB::setToMondayIfWeekDay($actualDate);
 				}
-				$return .= "<span class='".$trid['name']."'>".$this->username."</span>
-				</td>";
-				
-				$return .= "";
-				
-				$actualDate = $endDate;
 			}
 	    }
-		
-		//$this->lastMonth = strtotime($this->lastMonth);
-		
-		//$this->lastMonth = mktime(0,0,0,date("m",$this->lastMonth),date("t",$this->lastMonth),date("Y",$this->lastMonth)); 
-		//echo "<br>";echo "<br>";
-		//echo date("d.m.Y",$this->lastMonth); //EXAMPLE: 28.02.2013
-		//echo "<br>";
-		//echo date("d.m.Y",$actualDate);
-		//echo "<br>";echo "<br>";
-		
-		if ($actualDate !== 0) {
-			$duration = $this->calculateDuration(GLB::$lastDay,$actualDate);
-			//generates emptyTD until the next Task
-			if ($duration !== 0){
-				$j = $actualDate;
-				$j = $j +86400;
-				for($i = 1; $i <= $duration;$i++){
-					$return .= '<td class="emptyTD day'.date("d",$j).'"></td>';
-					$j = $j + 86400;
-				}
-				//$return .= '<td colspan="'.$duration.'"></td>';
-			}
-		}
-		
-	    return $return;
-	}
-	private function getNameFromTaskRoles($trid)
-	{
-		$sql = "SELECT name,color FROM taskroles WHERE trid=".$trid;
-		$result = $GLOBALS['DB']->query($sql);
-		$result = $result->fetch_array();
-		return $result;
-	}
-	private function calculateDuration($endDate,$startDate)
-	{
-		$duration = $endDate - $startDate;
-		$duration = $duration/"86400";
-		return $duration;
+		/**********
+		NOW generate the emptyTDs for the End of The Month*/
+		//Here it is Important to get the Last Day also as a Empty Day
+		$return .= GLB::generateEmptyTDs(GLB::$lastDay+86400,$actualDate);
+		/***********/	
+	    
+		return $return;
 	}
 }
 ?>

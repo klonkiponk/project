@@ -1,11 +1,2018 @@
-@import url('reset.css');
-@import url('content.css');
+/* line 17, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
 
-/**************************************\
-			   CSS IMPORT
-\**************************************/
+/* line 22, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
 
-/*  
-    Diese Datei dient nur zum Import der anderen Dateien. 
-    Nutzen Sie die Datei content.css um ihr eigenes CSS zu definieren.
-*/
+/* line 24, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/*@font-face {
+	 font-family: 'Avenir';
+	 src: url("./fonts/AvenirNext-Regular.ttf") format("truetype");
+}*/
+/*@font-face {
+	 font-family: 'AvenirBold';
+	 src: url("./fonts/AvenirNext-Bold.ttf") format("truetype");
+}*/
+@font-face {
+  font-family: 'BlueHighway';
+  src: url("./fonts/bluehigd.ttf") format("truetype");
+}
+
+/*@font-face {
+	font-family: "Dinot";
+	src: url(".fonts/DINOT.ttf") format("truetype");
+}*/
+/*@font-face {
+	font-family: "DinotMedium";
+	src: url(".fonts/DINOT-Medium.ttf") format("truetype");	
+}*/
+@font-face {
+  font-family: "Symbol";
+  src: url("fonts/Symbol.eot");
+  src: url("fonts/Symbol.eot?#iefix") format("eot"), url("fonts/Symbol.woff") format("woff"), url("fonts/Symbol.ttf") format("truetype"), url("fonts/Symbol.svg#FontAwesomeRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UbuntuLightRegular';
+  src: url("./fonts/ubuntu-light-webfont.eot");
+  src: url("./fonts/ubuntu-light-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/ubuntu-light-webfont.woff") format("woff"), url("./fonts/ubuntu-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 44, ../sass/_fonts.scss */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: Symbol;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-right: 0.2em;
+  width: 0.9em;
+}
+
+/* line 55, ../sass/_fonts.scss */
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+/* line 62, ../sass/_fonts.scss */
+.btn [class^="icon-"],
+.btn [class*=" icon-"], .nav-tabs [class^="icon-"],
+.nav-tabs [class*=" icon-"] {
+  line-height: .9em;
+}
+
+/* line 69, ../sass/_fonts.scss */
+li [class^="icon-"],
+li [class*=" icon-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+/* line 78, ../sass/_fonts.scss */
+.icon-glass:before {
+  content: "\f000";
+}
+
+/* line 79, ../sass/_fonts.scss */
+.icon-music:before {
+  content: "\f001";
+}
+
+/* line 80, ../sass/_fonts.scss */
+.icon-search:before {
+  content: "\f002";
+}
+
+/* line 81, ../sass/_fonts.scss */
+.icon-envelope:before {
+  content: "\f003";
+}
+
+/* line 82, ../sass/_fonts.scss */
+.icon-heart:before {
+  content: "\f004";
+}
+
+/* line 83, ../sass/_fonts.scss */
+.icon-star:before {
+  content: "\f005";
+}
+
+/* line 84, ../sass/_fonts.scss */
+.icon-star-empty:before {
+  content: "\f006";
+}
+
+/* line 85, ../sass/_fonts.scss */
+.icon-user:before {
+  content: "\f007";
+}
+
+/* line 86, ../sass/_fonts.scss */
+.icon-film:before {
+  content: "\f008";
+}
+
+/* line 87, ../sass/_fonts.scss */
+.icon-th-large:before {
+  content: "\f009";
+}
+
+/* line 88, ../sass/_fonts.scss */
+.icon-th:before {
+  content: "\f00a";
+}
+
+/* line 89, ../sass/_fonts.scss */
+.icon-th-list:before {
+  content: "\f00b";
+}
+
+/* line 90, ../sass/_fonts.scss */
+.icon-ok:before {
+  content: "\f00c";
+}
+
+/* line 91, ../sass/_fonts.scss */
+.icon-remove:before {
+  content: "\f00d";
+}
+
+/* line 92, ../sass/_fonts.scss */
+.icon-zoom-in:before {
+  content: "\f00e";
+}
+
+/* line 94, ../sass/_fonts.scss */
+.icon-zoom-out:before {
+  content: "\f010";
+}
+
+/* line 95, ../sass/_fonts.scss */
+.icon-off:before {
+  content: "\f011";
+}
+
+/* line 96, ../sass/_fonts.scss */
+.icon-signal:before {
+  content: "\f012";
+}
+
+/* line 97, ../sass/_fonts.scss */
+.icon-cog:before {
+  content: "\f013";
+}
+
+/* line 98, ../sass/_fonts.scss */
+.icon-trash:before {
+  content: "\f014";
+}
+
+/* line 99, ../sass/_fonts.scss */
+.icon-home:before {
+  content: "\f015";
+}
+
+/* line 100, ../sass/_fonts.scss */
+.icon-file:before {
+  content: "\f016";
+}
+
+/* line 101, ../sass/_fonts.scss */
+.icon-time:before {
+  content: "\f017";
+}
+
+/* line 102, ../sass/_fonts.scss */
+.icon-road:before {
+  content: "\f018";
+}
+
+/* line 103, ../sass/_fonts.scss */
+.icon-download-alt:before {
+  content: "\f019";
+}
+
+/* line 104, ../sass/_fonts.scss */
+.icon-download:before {
+  content: "\f01a";
+}
+
+/* line 105, ../sass/_fonts.scss */
+.icon-upload:before {
+  content: "\f01b";
+}
+
+/* line 106, ../sass/_fonts.scss */
+.icon-inbox:before {
+  content: "\f01c";
+}
+
+/* line 107, ../sass/_fonts.scss */
+.icon-play-circle:before {
+  content: "\f01d";
+}
+
+/* line 108, ../sass/_fonts.scss */
+.icon-repeat:before {
+  content: "\f01e";
+}
+
+/* \f020 doesn't work in Safari. all shifted one down */
+/* line 111, ../sass/_fonts.scss */
+.icon-refresh:before {
+  content: "\f021";
+}
+
+/* line 112, ../sass/_fonts.scss */
+.icon-list-alt:before {
+  content: "\f022";
+}
+
+/* line 113, ../sass/_fonts.scss */
+.icon-lock:before {
+  content: "\f023";
+}
+
+/* line 114, ../sass/_fonts.scss */
+.icon-flag:before {
+  content: "\f024";
+}
+
+/* line 115, ../sass/_fonts.scss */
+.icon-headphones:before {
+  content: "\f025";
+}
+
+/* line 116, ../sass/_fonts.scss */
+.icon-volume-off:before {
+  content: "\f026";
+}
+
+/* line 117, ../sass/_fonts.scss */
+.icon-volume-down:before {
+  content: "\f027";
+}
+
+/* line 118, ../sass/_fonts.scss */
+.icon-volume-up:before {
+  content: "\f028";
+}
+
+/* line 119, ../sass/_fonts.scss */
+.icon-qrcode:before {
+  content: "\f029";
+}
+
+/* line 120, ../sass/_fonts.scss */
+.icon-barcode:before {
+  content: "\f02a";
+}
+
+/* line 121, ../sass/_fonts.scss */
+.icon-tag:before {
+  content: "\f02b";
+}
+
+/* line 122, ../sass/_fonts.scss */
+.icon-tags:before {
+  content: "\f02c";
+}
+
+/* line 123, ../sass/_fonts.scss */
+.icon-book:before {
+  content: "\f02d";
+}
+
+/* line 124, ../sass/_fonts.scss */
+.icon-bookmark:before {
+  content: "\f02e";
+}
+
+/* line 125, ../sass/_fonts.scss */
+.icon-print:before {
+  content: "\f02f";
+}
+
+/* line 127, ../sass/_fonts.scss */
+.icon-camera:before {
+  content: "\f030";
+}
+
+/* line 128, ../sass/_fonts.scss */
+.icon-font:before {
+  content: "\f031";
+}
+
+/* line 129, ../sass/_fonts.scss */
+.icon-bold:before {
+  content: "\f032";
+}
+
+/* line 130, ../sass/_fonts.scss */
+.icon-italic:before {
+  content: "\f033";
+}
+
+/* line 131, ../sass/_fonts.scss */
+.icon-text-height:before {
+  content: "\f034";
+}
+
+/* line 132, ../sass/_fonts.scss */
+.icon-text-width:before {
+  content: "\f035";
+}
+
+/* line 133, ../sass/_fonts.scss */
+.icon-align-left:before {
+  content: "\f036";
+}
+
+/* line 134, ../sass/_fonts.scss */
+.icon-align-center:before {
+  content: "\f037";
+}
+
+/* line 135, ../sass/_fonts.scss */
+.icon-align-right:before {
+  content: "\f038";
+}
+
+/* line 136, ../sass/_fonts.scss */
+.icon-align-justify:before {
+  content: "\f039";
+}
+
+/* line 137, ../sass/_fonts.scss */
+.icon-list:before {
+  content: "\f03a";
+}
+
+/* line 138, ../sass/_fonts.scss */
+.icon-indent-left:before {
+  content: "\f03b";
+}
+
+/* line 139, ../sass/_fonts.scss */
+.icon-indent-right:before {
+  content: "\f03c";
+}
+
+/* line 140, ../sass/_fonts.scss */
+.icon-facetime-video:before {
+  content: "\f03d";
+}
+
+/* line 141, ../sass/_fonts.scss */
+.icon-picture:before {
+  content: "\f03e";
+}
+
+/* line 143, ../sass/_fonts.scss */
+.icon-pencil:before {
+  content: "\f040";
+}
+
+/* line 144, ../sass/_fonts.scss */
+.icon-map-marker:before {
+  content: "\f041";
+}
+
+/* line 145, ../sass/_fonts.scss */
+.icon-adjust:before {
+  content: "\f042";
+}
+
+/* line 146, ../sass/_fonts.scss */
+.icon-tint:before {
+  content: "\f043";
+}
+
+/* line 147, ../sass/_fonts.scss */
+.icon-edit:before {
+  content: "\f044";
+}
+
+/* line 148, ../sass/_fonts.scss */
+.icon-share:before {
+  content: "\f045";
+}
+
+/* line 149, ../sass/_fonts.scss */
+.icon-check:before {
+  content: "\f046";
+}
+
+/* line 150, ../sass/_fonts.scss */
+.icon-move:before {
+  content: "\f047";
+}
+
+/* line 151, ../sass/_fonts.scss */
+.icon-step-backward:before {
+  content: "\f048";
+}
+
+/* line 152, ../sass/_fonts.scss */
+.icon-fast-backward:before {
+  content: "\f049";
+}
+
+/* line 153, ../sass/_fonts.scss */
+.icon-backward:before {
+  content: "\f04a";
+}
+
+/* line 154, ../sass/_fonts.scss */
+.icon-play:before {
+  content: "\f04b";
+}
+
+/* line 155, ../sass/_fonts.scss */
+.icon-pause:before {
+  content: "\f04c";
+}
+
+/* line 156, ../sass/_fonts.scss */
+.icon-stop:before {
+  content: "\f04d";
+}
+
+/* line 157, ../sass/_fonts.scss */
+.icon-forward:before {
+  content: "\f04e";
+}
+
+/* line 159, ../sass/_fonts.scss */
+.icon-fast-forward:before {
+  content: "\f050";
+}
+
+/* line 160, ../sass/_fonts.scss */
+.icon-step-forward:before {
+  content: "\f051";
+}
+
+/* line 161, ../sass/_fonts.scss */
+.icon-eject:before {
+  content: "\f052";
+}
+
+/* line 162, ../sass/_fonts.scss */
+.icon-chevron-left:before {
+  content: "\f053";
+}
+
+/* line 163, ../sass/_fonts.scss */
+.icon-chevron-right:before {
+  content: "\f054";
+}
+
+/* line 164, ../sass/_fonts.scss */
+.icon-plus-sign:before {
+  content: "\f055";
+}
+
+/* line 165, ../sass/_fonts.scss */
+.icon-minus-sign:before {
+  content: "\f056";
+}
+
+/* line 166, ../sass/_fonts.scss */
+.icon-remove-sign:before {
+  content: "\f057";
+}
+
+/* line 167, ../sass/_fonts.scss */
+.icon-ok-sign:before {
+  content: "\f058";
+}
+
+/* line 168, ../sass/_fonts.scss */
+.icon-question-sign:before {
+  content: "\f059";
+}
+
+/* line 169, ../sass/_fonts.scss */
+.icon-info-sign:before {
+  content: "\f05a";
+}
+
+/* line 170, ../sass/_fonts.scss */
+.icon-screenshot:before {
+  content: "\f05b";
+}
+
+/* line 171, ../sass/_fonts.scss */
+.icon-remove-circle:before {
+  content: "\f05c";
+}
+
+/* line 172, ../sass/_fonts.scss */
+.icon-ok-circle:before {
+  content: "\f05d";
+}
+
+/* line 173, ../sass/_fonts.scss */
+.icon-ban-circle:before {
+  content: "\f05e";
+}
+
+/* line 175, ../sass/_fonts.scss */
+.icon-arrow-left:before {
+  content: "\f060";
+}
+
+/* line 176, ../sass/_fonts.scss */
+.icon-arrow-right:before {
+  content: "\f061";
+}
+
+/* line 177, ../sass/_fonts.scss */
+.icon-arrow-up:before {
+  content: "\f062";
+}
+
+/* line 178, ../sass/_fonts.scss */
+.icon-arrow-down:before {
+  content: "\f063";
+}
+
+/* line 179, ../sass/_fonts.scss */
+.icon-share-alt:before {
+  content: "\f064";
+}
+
+/* line 180, ../sass/_fonts.scss */
+.icon-resize-full:before {
+  content: "\f065";
+}
+
+/* line 181, ../sass/_fonts.scss */
+.icon-resize-small:before {
+  content: "\f066";
+}
+
+/* line 182, ../sass/_fonts.scss */
+.icon-plus:before {
+  content: "\f067";
+}
+
+/* line 183, ../sass/_fonts.scss */
+.icon-minus:before {
+  content: "\f068";
+}
+
+/* line 184, ../sass/_fonts.scss */
+.icon-asterisk:before {
+  content: "\f069";
+}
+
+/* line 185, ../sass/_fonts.scss */
+.icon-exclamation-sign:before {
+  content: "\f06a";
+}
+
+/* line 186, ../sass/_fonts.scss */
+.icon-gift:before {
+  content: "\f06b";
+}
+
+/* line 187, ../sass/_fonts.scss */
+.icon-leaf:before {
+  content: "\f06c";
+}
+
+/* line 188, ../sass/_fonts.scss */
+.icon-fire:before {
+  content: "\f06d";
+}
+
+/* line 189, ../sass/_fonts.scss */
+.icon-eye-open:before {
+  content: "\f06e";
+}
+
+/* line 191, ../sass/_fonts.scss */
+.icon-eye-close:before {
+  content: "\f070";
+}
+
+/* line 192, ../sass/_fonts.scss */
+.icon-warning-sign:before {
+  content: "\f071";
+}
+
+/* line 193, ../sass/_fonts.scss */
+.icon-plane:before {
+  content: "\f072";
+}
+
+/* line 194, ../sass/_fonts.scss */
+.icon-calendar:before {
+  content: "\f073";
+}
+
+/* line 195, ../sass/_fonts.scss */
+.icon-random:before {
+  content: "\f074";
+}
+
+/* line 196, ../sass/_fonts.scss */
+.icon-comment:before {
+  content: "\f075";
+}
+
+/* line 197, ../sass/_fonts.scss */
+.icon-magnet:before {
+  content: "\f076";
+}
+
+/* line 198, ../sass/_fonts.scss */
+.icon-chevron-up:before {
+  content: "\f077";
+}
+
+/* line 199, ../sass/_fonts.scss */
+.icon-chevron-down:before {
+  content: "\f078";
+}
+
+/* line 200, ../sass/_fonts.scss */
+.icon-retweet:before {
+  content: "\f079";
+}
+
+/* line 201, ../sass/_fonts.scss */
+.icon-shopping-cart:before {
+  content: "\f07a";
+}
+
+/* line 202, ../sass/_fonts.scss */
+.icon-folder-close:before {
+  content: "\f07b";
+}
+
+/* line 203, ../sass/_fonts.scss */
+.icon-folder-open:before {
+  content: "\f07c";
+}
+
+/* line 204, ../sass/_fonts.scss */
+.icon-resize-vertical:before {
+  content: "\f07d";
+}
+
+/* line 205, ../sass/_fonts.scss */
+.icon-resize-horizontal:before {
+  content: "\f07e";
+}
+
+/* line 207, ../sass/_fonts.scss */
+.icon-bar-chart:before {
+  content: "\f080";
+}
+
+/* line 208, ../sass/_fonts.scss */
+.icon-twitter-sign:before {
+  content: "\f081";
+}
+
+/* line 209, ../sass/_fonts.scss */
+.icon-facebook-sign:before {
+  content: "\f082";
+}
+
+/* line 210, ../sass/_fonts.scss */
+.icon-camera-retro:before {
+  content: "\f083";
+}
+
+/* line 211, ../sass/_fonts.scss */
+.icon-key:before {
+  content: "\f084";
+}
+
+/* line 212, ../sass/_fonts.scss */
+.icon-cogs:before {
+  content: "\f085";
+}
+
+/* line 213, ../sass/_fonts.scss */
+.icon-comments:before {
+  content: "\f086";
+}
+
+/* line 214, ../sass/_fonts.scss */
+.icon-thumbs-up:before {
+  content: "\f087";
+}
+
+/* line 215, ../sass/_fonts.scss */
+.icon-thumbs-down:before {
+  content: "\f088";
+}
+
+/* line 216, ../sass/_fonts.scss */
+.icon-star-half:before {
+  content: "\f089";
+}
+
+/* line 217, ../sass/_fonts.scss */
+.icon-heart-empty:before {
+  content: "\f08a";
+}
+
+/* line 218, ../sass/_fonts.scss */
+.icon-signout:before {
+  content: "\f08b";
+}
+
+/* line 219, ../sass/_fonts.scss */
+.icon-linkedin-sign:before {
+  content: "\f08c";
+}
+
+/* line 220, ../sass/_fonts.scss */
+.icon-pushpin:before {
+  content: "\f08d";
+}
+
+/* line 221, ../sass/_fonts.scss */
+.icon-external-link:before {
+  content: "\f08e";
+}
+
+/* line 223, ../sass/_fonts.scss */
+.icon-signin:before {
+  content: "\f090";
+}
+
+/* line 224, ../sass/_fonts.scss */
+.icon-trophy:before {
+  content: "\f091";
+}
+
+/* line 225, ../sass/_fonts.scss */
+.icon-github-sign:before {
+  content: "\f092";
+}
+
+/* line 226, ../sass/_fonts.scss */
+.icon-upload-alt:before {
+  content: "\f093";
+}
+
+/* line 227, ../sass/_fonts.scss */
+.icon-lemon:before {
+  content: "\f094";
+}
+
+/* line 228, ../sass/_fonts.scss */
+.icon-phone:before {
+  content: "\f095";
+}
+
+/* line 229, ../sass/_fonts.scss */
+.icon-check-empty:before {
+  content: "\f096";
+}
+
+/* line 230, ../sass/_fonts.scss */
+.icon-bookmark-empty:before {
+  content: "\f097";
+}
+
+/* line 231, ../sass/_fonts.scss */
+.icon-phone-sign:before {
+  content: "\f098";
+}
+
+/* line 232, ../sass/_fonts.scss */
+.icon-twitter:before {
+  content: "\f099";
+}
+
+/* line 233, ../sass/_fonts.scss */
+.icon-facebook:before {
+  content: "\f09a";
+}
+
+/* line 234, ../sass/_fonts.scss */
+.icon-github:before {
+  content: "\f09b";
+}
+
+/* line 235, ../sass/_fonts.scss */
+.icon-unlock:before {
+  content: "\f09c";
+}
+
+/* line 236, ../sass/_fonts.scss */
+.icon-credit-card:before {
+  content: "\f09d";
+}
+
+/* line 237, ../sass/_fonts.scss */
+.icon-rss:before {
+  content: "\f09e";
+}
+
+/* line 239, ../sass/_fonts.scss */
+.icon-hdd:before {
+  content: "\f0a0";
+}
+
+/* line 240, ../sass/_fonts.scss */
+.icon-bullhorn:before {
+  content: "\f0a1";
+}
+
+/* line 241, ../sass/_fonts.scss */
+.icon-bell:before {
+  content: "\f0a2";
+}
+
+/* line 242, ../sass/_fonts.scss */
+.icon-certificate:before {
+  content: "\f0a3";
+}
+
+/* line 243, ../sass/_fonts.scss */
+.icon-hand-right:before {
+  content: "\f0a4";
+}
+
+/* line 244, ../sass/_fonts.scss */
+.icon-hand-left:before {
+  content: "\f0a5";
+}
+
+/* line 245, ../sass/_fonts.scss */
+.icon-hand-up:before {
+  content: "\f0a6";
+}
+
+/* line 246, ../sass/_fonts.scss */
+.icon-hand-down:before {
+  content: "\f0a7";
+}
+
+/* line 247, ../sass/_fonts.scss */
+.icon-circle-arrow-left:before {
+  content: "\f0a8";
+}
+
+/* line 248, ../sass/_fonts.scss */
+.icon-circle-arrow-right:before {
+  content: "\f0a9";
+}
+
+/* line 249, ../sass/_fonts.scss */
+.icon-circle-arrow-up:before {
+  content: "\f0aa";
+}
+
+/* line 250, ../sass/_fonts.scss */
+.icon-circle-arrow-down:before {
+  content: "\f0ab";
+}
+
+/* line 251, ../sass/_fonts.scss */
+.icon-globe:before {
+  content: "\f0ac";
+}
+
+/* line 252, ../sass/_fonts.scss */
+.icon-wrench:before {
+  content: "\f0ad";
+}
+
+/* line 253, ../sass/_fonts.scss */
+.icon-tasks:before {
+  content: "\f0ae";
+}
+
+/* line 255, ../sass/_fonts.scss */
+.icon-filter:before {
+  content: "\f0b0";
+}
+
+/* line 256, ../sass/_fonts.scss */
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+
+/* line 257, ../sass/_fonts.scss */
+.icon-fullscreen:before {
+  content: "\f0b2";
+}
+
+/* line 259, ../sass/_fonts.scss */
+.icon-group:before {
+  content: "\f0c0";
+}
+
+/* line 260, ../sass/_fonts.scss */
+.icon-link:before {
+  content: "\f0c1";
+}
+
+/* line 261, ../sass/_fonts.scss */
+.icon-cloud:before {
+  content: "\f0c2";
+}
+
+/* line 262, ../sass/_fonts.scss */
+.icon-beaker:before {
+  content: "\f0c3";
+}
+
+/* line 263, ../sass/_fonts.scss */
+.icon-cut:before {
+  content: "\f0c4";
+}
+
+/* line 264, ../sass/_fonts.scss */
+.icon-copy:before {
+  content: "\f0c5";
+}
+
+/* line 265, ../sass/_fonts.scss */
+.icon-paper-clip:before {
+  content: "\f0c6";
+}
+
+/* line 266, ../sass/_fonts.scss */
+.icon-save:before {
+  content: "\f0c7";
+}
+
+/* line 267, ../sass/_fonts.scss */
+.icon-sign-blank:before {
+  content: "\f0c8";
+}
+
+/* line 268, ../sass/_fonts.scss */
+.icon-reorder:before {
+  content: "\f0c9";
+}
+
+/* line 269, ../sass/_fonts.scss */
+.icon-list-ul:before {
+  content: "\f0ca";
+}
+
+/* line 270, ../sass/_fonts.scss */
+.icon-list-ol:before {
+  content: "\f0cb";
+}
+
+/* line 271, ../sass/_fonts.scss */
+.icon-strikethrough:before {
+  content: "\f0cc";
+}
+
+/* line 272, ../sass/_fonts.scss */
+.icon-underline:before {
+  content: "\f0cd";
+}
+
+/* line 273, ../sass/_fonts.scss */
+.icon-table:before {
+  content: "\f0ce";
+}
+
+/* line 275, ../sass/_fonts.scss */
+.icon-magic:before {
+  content: "\f0d0";
+}
+
+/* line 276, ../sass/_fonts.scss */
+.icon-truck:before {
+  content: "\f0d1";
+}
+
+/* line 277, ../sass/_fonts.scss */
+.icon-pinterest:before {
+  content: "\f0d2";
+}
+
+/* line 278, ../sass/_fonts.scss */
+.icon-pinterest-sign:before {
+  content: "\f0d3";
+}
+
+/* line 279, ../sass/_fonts.scss */
+.icon-google-plus-sign:before {
+  content: "\f0d4";
+}
+
+/* line 280, ../sass/_fonts.scss */
+.icon-google-plus:before {
+  content: "\f0d5";
+}
+
+/* line 281, ../sass/_fonts.scss */
+.icon-money:before {
+  content: "\f0d6";
+}
+
+/* line 282, ../sass/_fonts.scss */
+.icon-caret-down:before {
+  content: "\f0d7";
+}
+
+/* line 283, ../sass/_fonts.scss */
+.icon-caret-up:before {
+  content: "\f0d8";
+}
+
+/* line 284, ../sass/_fonts.scss */
+.icon-caret-left:before {
+  content: "\f0d9";
+}
+
+/* line 285, ../sass/_fonts.scss */
+.icon-caret-right:before {
+  content: "\f0da";
+}
+
+/* line 286, ../sass/_fonts.scss */
+.icon-columns:before {
+  content: "\f0db";
+}
+
+/* line 287, ../sass/_fonts.scss */
+.icon-sort:before {
+  content: "\f0dc";
+}
+
+/* line 288, ../sass/_fonts.scss */
+.icon-sort-down:before {
+  content: "\f0dd";
+}
+
+/* line 289, ../sass/_fonts.scss */
+.icon-sort-up:before {
+  content: "\f0de";
+}
+
+/* line 291, ../sass/_fonts.scss */
+.icon-envelope-alt:before {
+  content: "\f0e0";
+}
+
+/* line 292, ../sass/_fonts.scss */
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+
+/* line 293, ../sass/_fonts.scss */
+.icon-undo:before {
+  content: "\f0e2";
+}
+
+/* line 294, ../sass/_fonts.scss */
+.icon-legal:before {
+  content: "\f0e3";
+}
+
+/* line 295, ../sass/_fonts.scss */
+.icon-dashboard:before {
+  content: "\f0e4";
+}
+
+/* line 296, ../sass/_fonts.scss */
+.icon-comment-alt:before {
+  content: "\f0e5";
+}
+
+/* line 297, ../sass/_fonts.scss */
+.icon-comments-alt:before {
+  content: "\f0e6";
+}
+
+/* line 298, ../sass/_fonts.scss */
+.icon-bolt:before {
+  content: "\f0e7";
+}
+
+/* line 299, ../sass/_fonts.scss */
+.icon-sitemap:before {
+  content: "\f0e8";
+}
+
+/* line 300, ../sass/_fonts.scss */
+.icon-umbrella:before {
+  content: "\f0e9";
+}
+
+/* line 301, ../sass/_fonts.scss */
+.icon-paste:before {
+  content: "\f0ea";
+}
+
+/* line 303, ../sass/_fonts.scss */
+.icon-user-md:before {
+  content: "\f200";
+}
+
+/* line 2, ../sass/_globalHeader.scss */
+.projectPersonNav {
+  float: left;
+}
+
+/* line 5, ../sass/_globalHeader.scss */
+.newProjectNav {
+  float: right;
+}
+
+/* line 11, ../sass/_globalHeader.scss */
+#globalHeader {
+  font-size: 2em;
+  text-align: center;
+  color: #666;
+  margin-top: 0;
+  background: #fff;
+  padding: 20px;
+  border-left: 1px solid #999999;
+  border-right: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  background: url("data:image/gif;base64,R0lGODlh8gAtAPcAAICIjoKKkKKorc7R1Pj4+aCmrN7g4oqRmOzu7uTl5trc3nyEi4aOlKessdPW2OLk5dHU1srN0J6kqmlyepqgpsTHypKYnqOprqmutMnMzqSqsHZ/hpiepJ2jqHyEipKan6CmqsbKzM3Q09bZ3G53f8zP0rO4vL7Cxufo6nJ6gpCXneTm57i9wcLGynN8gv///36GjOjp6q2ytrzAxXiAiOzt7uvs7e3u74ePlbu/wtLV13B4gNDT1bC0uG54f5Wbofb297a7v3Z+hMDEyLS5vI+XnWx1fXqDiunr7LO4u7K3u4aNlNTX2X6Hjpyip3R8g5adorG2u4qQl/T19sLGyfLz9G54gHV+hdXY2rm+wbC1uXeAh4yTmXN8g3B6gYSMkWx2fnqCiZacoYyUmcfLzoaMk5KYnY+Xm46Vm293f2pze2p0fGp0e2pzemp0etfZ22pzfP39/dja3GpyenR8hPX29pOaoHR9hamusoiQlv7+/pGYnqmus5OZoMXJzJGYneHj5Pz8/Nja3amvsnR9hPv7++/w8amvtJ6kqPv8/OHj5ZGZn/Dx8quwtcDEx5GZnubo6YiQl9ze4ISNk9jb3ZOboYSMkpqhpp+mqmpye93f4Gx2fZ+lqvP09Z6kqZ6lqPr6+quwtKuxtYSNkvT19ZObn7vAxIiQlff3+Pf4+IWOlKuxtIWMk7W6vmt1fdbY2ubn6ZWcouDi43uEi32FjPn5+cbJzKqvtIOLkp+mqWt0fGt1fKGnrNbZ2nV9hN/h4+Di5OHi5OHi5Z6lqp+kqbzAw/r7+5OaofLy83yDi9fY23+Hjtze4d3f4YmQl4WNk4qRltjZ3HN7g8LFyYaOk7e7v+bn6rq+wXR7hNnb3XF7gnJ7grO3vIuSmKius6uxtvj4+vHy873Bxb7CxXR7g+Hj5oWNlHV+hp2kqa6zuLW5vri8v3R8hZuhp3mBiHiAh97g4ZKaoL/EyPDx8bvAw+Xl6Gt0e7/Dx6qwtKqwtZmfpYyUm5eeo9XY2YWMktnb3iH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlBQzhCRkNCRUU5NDExRTBCRjQzRkQ4Mjk1ODUwMENEIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlBQzhCRkNDRUU5NDExRTBCRjQzRkQ4Mjk1ODUwMENEIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUFDOEJGQzlFRTk0MTFFMEJGNDNGRDgyOTU4NTAwQ0QiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUFDOEJGQ0FFRTk0MTFFMEJGNDNGRDgyOTU4NTAwQ0QiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMi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") no-repeat 760px 18px white;
+}
+/* line 24, ../sass/_globalHeader.scss */
+#globalHeader a {
+  font-family: "BlueHighway";
+  font-size: 1.1em;
+  text-align: center;
+  color: #666;
+  margin-top: 0;
+}
+
+/* line 39, ../sass/_globalHeader.scss */
+.globalHeaderBox {
+  background: #ffffff;
+  border-bottom: 1px solid #333333;
+  border-right: 1px solid #333333;
+  border-left: 1px solid #333333;
+  color: #333;
+  display: none;
+}
+
+/* line 51, ../sass/_globalHeader.scss */
+#globalNav {
+  margin-bottom: 40px;
+}
+
+/* line 54, ../sass/_globalHeader.scss */
+#globalNav a {
+  background: #FFF;
+  border-radius: 0 0 10px 10px;
+  color: #666;
+  padding: 5px 10px 3px 10px;
+  margin: 0;
+  display: block;
+  float: left;
+  font-size: 0.8em;
+  border: 1px solid #999999;
+  border-top: none;
+  text-decoration: none;
+}
+/* line 69, ../sass/_globalHeader.scss */
+#globalNav a:hover {
+  background: #777;
+  color: #fff;
+}
+/* line 73, ../sass/_globalHeader.scss */
+#globalNav a:active {
+  background: #333;
+  color: #fff;
+}
+
+/********************\
+
+SingleProjectColors
+
+\********************/
+/* line 7, ../sass/_singleProjectColors.scss */
+.red.userTaskRow1 td.singleTask {
+  background: #A60000;
+  color: #fff;
+}
+
+/* line 12, ../sass/_singleProjectColors.scss */
+.red.userTaskRow2 td.singleTask {
+  background: #BF3030;
+  color: #fff;
+}
+
+/* line 17, ../sass/_singleProjectColors.scss */
+.red.userTaskRow3 td.singleTask {
+  background: #FF0000;
+  color: #fff;
+}
+
+/* line 22, ../sass/_singleProjectColors.scss */
+.red.userTaskRow4 td.singleTask {
+  background: #FF4040;
+  color: #fff;
+}
+
+/* line 26, ../sass/_singleProjectColors.scss */
+.red.userTaskRow5 td.singleTask {
+  background: #FF7373;
+  color: #fff;
+}
+
+/* line 30, ../sass/_singleProjectColors.scss */
+.blue.userTaskRow1 td.singleTask {
+  background: #006363;
+  color: #fff;
+}
+
+/* line 34, ../sass/_singleProjectColors.scss */
+.blue.userTaskRow2 td.singleTask {
+  background: #1D7373;
+  color: #fff;
+}
+
+/* line 38, ../sass/_singleProjectColors.scss */
+.blue.userTaskRow3 td.singleTask {
+  background: #009999;
+  color: #fff;
+}
+
+/* line 42, ../sass/_singleProjectColors.scss */
+.blue.userTaskRow4 td.singleTask {
+  background: #33CCCC;
+  color: #fff;
+}
+
+/* line 46, ../sass/_singleProjectColors.scss */
+.blue.userTaskRow5 td.singleTask {
+  background: #5CCCCC;
+  color: #fff;
+}
+
+/* line 50, ../sass/_singleProjectColors.scss */
+.green.userTaskRow1 td.singleTask {
+  background: #008500;
+  color: #fff;
+}
+
+/* line 54, ../sass/_singleProjectColors.scss */
+.green.userTaskRow2 td.singleTask {
+  background: #269926;
+  color: #fff;
+}
+
+/* line 58, ../sass/_singleProjectColors.scss */
+.green.userTaskRow3 td.singleTask {
+  background: #00CC00;
+  color: #fff;
+}
+
+/* line 62, ../sass/_singleProjectColors.scss */
+.green.userTaskRow4 td.singleTask {
+  background: #39E639;
+  color: #fff;
+}
+
+/* line 66, ../sass/_singleProjectColors.scss */
+.green.userTaskRow5 td.singleTask {
+  background: #67E667;
+  color: #fff;
+}
+
+/* line 70, ../sass/_singleProjectColors.scss */
+.orange.userTaskRow1 td.singleTask {
+  background: #A64800;
+  color: #fff;
+}
+
+/* line 75, ../sass/_singleProjectColors.scss */
+.orange.userTaskRow2 td.singleTask {
+  background: #BF7120;
+  color: #fff;
+}
+
+/* line 80, ../sass/_singleProjectColors.scss */
+.orange.userTaskRow3 td.singleTask {
+  background: #FF7400;
+  color: #fff;
+}
+
+/* line 85, ../sass/_singleProjectColors.scss */
+.orange.userTaskRow4 td.singleTask {
+  background: #FF9640;
+  color: #fff;
+}
+
+/* line 89, ../sass/_singleProjectColors.scss */
+.orange.userTaskRow5 td.singleTask {
+  background: #FFB273;
+  color: #fff;
+}
+
+/* line 93, ../sass/_singleProjectColors.scss */
+.lightblue.userTaskRow1 td.singleTask {
+  background: #04346C;
+  color: #fff;
+}
+
+/* line 97, ../sass/_singleProjectColors.scss */
+.lightblue.userTaskRow2 td.singleTask {
+  background: #274E7D;
+  color: #fff;
+}
+
+/* line 101, ../sass/_singleProjectColors.scss */
+.lightblue.userTaskRow3 td.singleTask {
+  background: #0E53A7;
+  color: #fff;
+}
+
+/* line 105, ../sass/_singleProjectColors.scss */
+.lightblue.userTaskRow4 td.singleTask {
+  background: #4284D3;
+  color: #fff;
+}
+
+/* line 109, ../sass/_singleProjectColors.scss */
+.lightblue.userTaskRow5 td.singleTask {
+  background: #6899D3;
+  color: #fff;
+}
+
+/* line 1, ../sass/_headings.scss */
+h1 {
+  font-size: 4.5em;
+  text-shadow: 1px 1px 3px #333333;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+/* line 7, ../sass/_headings.scss */
+h2 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: "DinotMedium","Dinot",Helvetica,Arial;
+  font-size: 1.6em;
+}
+
+/* line 16, ../sass/_headings.scss */
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+/* line 1, ../sass/_forms.scss */
+.editWrapper {
+  padding: 20px;
+  margin: 10px auto;
+  margin-top: 50px;
+  background: #FFF;
+  border: 1px solid #999999;
+}
+/* line 8, ../sass/_forms.scss */
+.editWrapper h2 {
+  margin-bottom: 40px;
+}
+
+/* line 14, ../sass/_forms.scss */
+input, select, option {
+  font-size: 1.0em;
+  color: #666;
+  padding: 1px;
+  border: 1px solid #c2c2c2;
+  border-radius: 5px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 150px;
+  background: #fff;
+  margin-right: 15px;
+  padding-left: 3px;
+}
+
+/* line 28, ../sass/_forms.scss */
+option {
+  padding: none;
+  outline: none;
+  border: none;
+}
+
+/* line 34, ../sass/_forms.scss */
+label {
+  text-transform: capitalize;
+}
+
+/* line 38, ../sass/_forms.scss */
+select {
+  background: white url("img/select_icon.jpg") no-repeat right;
+  width: 200px;
+  padding: 1px;
+  padding-left: 8px;
+  border: 1px solid #c2c2c2;
+  border-radius: 5px;
+  -webkit-appearance: none;
+}
+
+/* line 48, ../sass/_forms.scss */
+form.next, form.previous {
+  position: absolute;
+  top: 0;
+}
+/* line 51, ../sass/_forms.scss */
+form.next input[type=submit], form.previous input[type=submit] {
+  width: 100px;
+}
+/* line 53, ../sass/_forms.scss */
+form.next input[type=submit]:hover, form.previous input[type=submit]:hover {
+  cursor: pointer;
+  background: #F2F2F2;
+}
+/* line 57, ../sass/_forms.scss */
+form.next input[type=submit]:active, form.previous input[type=submit]:active {
+  background: silver;
+}
+/* line 61, ../sass/_forms.scss */
+form.next button, form.previous button {
+  background: none;
+  border: none;
+  font-size: 3.3em;
+  color: #aaa;
+  width: 40px;
+  padding: 0;
+}
+/* line 68, ../sass/_forms.scss */
+form.next button:hover, form.previous button:hover {
+  color: #666;
+  cursor: pointer;
+}
+
+/* line 74, ../sass/_forms.scss */
+form.next {
+  right: -2px;
+}
+
+/* line 77, ../sass/_forms.scss */
+form.previous {
+  left: -10px;
+}
+
+/* line 81, ../sass/_forms.scss */
+input, select, option {
+  font-family: "Dinot",Helvetica,Arial;
+}
+
+/* line 86, ../sass/_forms.scss */
+span.taskToggler, span.primaryTaskToggler, span.holidayToggler {
+  display: inline-block;
+  font-size: 1.8em;
+}
+/* line 89, ../sass/_forms.scss */
+span.taskToggler:hover, span.primaryTaskToggler:hover, span.holidayToggler:hover {
+  cursor: pointer;
+}
+
+/* line 95, ../sass/_forms.scss */
+input.date {
+  width: 90px;
+}
+
+/* line 101, ../sass/_forms.scss */
+input.usershortname {
+  width: 65px;
+  margin-right: 15px;
+}
+/* line 105, ../sass/_forms.scss */
+input.save {
+  width: 100px;
+}
+/* line 107, ../sass/_forms.scss */
+input.save:hover {
+  cursor: pointer;
+}
+/* line 111, ../sass/_forms.scss */
+input.delete {
+  width: 100px;
+  background: red;
+  color: #fff;
+}
+/* line 115, ../sass/_forms.scss */
+input.delete:hover {
+  cursor: pointer;
+}
+
+/* line 122, ../sass/_forms.scss */
+label.username {
+  width: 165px;
+  display: inline-block;
+}
+/* line 126, ../sass/_forms.scss */
+label.usershortname {
+  width: 80px;
+  display: inline-block;
+}
+/* line 130, ../sass/_forms.scss */
+label.password {
+  width: 165px;
+  display: inline-block;
+}
+/* line 134, ../sass/_forms.scss */
+label.role {
+  width: 200px;
+  display: inline-block;
+}
+/* line 138, ../sass/_forms.scss */
+label.projectname {
+  width: 165px;
+  display: inline-block;
+}
+/* line 142, ../sass/_forms.scss */
+label.projecttimerange {
+  width: 248px;
+  display: inline-block;
+}
+/* line 146, ../sass/_forms.scss */
+label.projectname200 {
+  width: 215px;
+  display: inline-block;
+}
+
+/* line 1, ../sass/_button.scss */
+.button {
+  border-radius: 3px;
+  border: 1px solid #666666;
+  background: #fff;
+  color: #666;
+  font-family: "Dinot",Helvetica,Arial;
+  display: inline-block;
+  width: 180px;
+  line-height: normal;
+  height: 25px !important;
+  padding: 0;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* line 17, ../sass/_button.scss */
+.button:hover {
+  background: #666;
+  color: #fff;
+}
+
+/* line 22, ../sass/_button.scss */
+.button:active {
+  background: #333;
+}
+
+/* line 26, ../sass/_button.scss */
+.button:focus {
+  background: #333;
+}
+
+/* line 1, ../sass/_datePicker.scss */
+.ui-datepicker-div {
+  font-size: 0.5em;
+}
+
+/* line 1, ../sass/_layout.scss */
+.wrapper {
+  margin: 0 auto;
+  width: 1040px;
+  padding: 10px;
+  padding-top: 0;
+}
+
+/* line 1, ../sass/_overview.scss */
+.overview {
+  position: relative;
+}
+
+/* line 9, ../sass/_overview.scss */
+table {
+  border-collapse: separate;
+}
+
+/* line 14, ../sass/_overview.scss */
+.calendarWeek {
+  border: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+  border-left: none;
+  padding: 3px 0;
+  text-align: center;
+  color: #666;
+  background: #fff;
+}
+
+/* line 25, ../sass/_overview.scss */
+td {
+  height: 20px;
+  border-collapse: collapse;
+}
+
+/* line 30, ../sass/_overview.scss */
+.calendarDay {
+  border-right: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  height: 27px;
+  color: #666;
+  font-size: 0.8em;
+  vertical-align: top;
+  text-align: center;
+  width: 20px;
+  padding-top: 3px;
+  background: #fff;
+}
+
+/* line 44, ../sass/_overview.scss */
+.calendarMonth {
+  text-align: center;
+  border: 1px solid black;
+  font-size: 1.2em;
+  padding: 5px;
+  padding-top: 3px;
+  -webkit-box-shadow: 0px 0px 3px #666666 inset;
+  -moz-box-shadow: 0px 0px 3px #666666 inset;
+  box-shadow: 0px 0px 3px #666666 inset;
+  text-shadow: 1px 1px 1px black;
+  /*background-color: rgb(125,126,125);
+  @include filter-gradient(#7d7e7d, #0e0e0e, vertical);
+  @include background-image(linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%));
+  */
+  background: #333;
+  color: #fff;
+}
+
+/* line 60, ../sass/_overview.scss */
+.projectSingleName {
+  width: 85px;
+  border: 1px solid #999999;
+  text-align: center;
+  color: #666;
+  vertical-align: middle;
+  font-size: 0.8em;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* line 71, ../sass/_overview.scss */
+.projectMainDates {
+  height: 20px;
+  border: 1px solid black;
+  position: relative;
+  font-size: 0.8em;
+  -webkit-box-shadow: 0px 0px 3px #666666 inset;
+  -moz-box-shadow: 0px 0px 3px #666666 inset;
+  box-shadow: 0px 0px 3px #666666 inset;
+  background: #333;
+}
+
+/* line 84, ../sass/_overview.scss */
+.taetigkeitsbox {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+/* line 90, ../sass/_overview.scss */
+.emptyRow {
+  background: rgba(255, 255, 255, 0);
+  border: none !important;
+  height: 18px;
+}
+
+/* line 96, ../sass/_overview.scss */
+.primaryTaskRelativeDiv {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 102, ../sass/_overview.scss */
+.primaryTaskName {
+  position: absolute;
+  right: -203px;
+  width: 200px;
+  top: 2px;
+  height: 21px;
+  padding-top: 1px;
+  color: #666;
+  /*background:fuchsia;*/
+}
+
+/* line 112, ../sass/_overview.scss */
+.projectDates {
+  /*border:1px solid fuchsia;
+  border-bottom:none;
+  border-top:none;
+  height:19px;
+  color:#666;
+  font-size:0.8em;
+  text-align:center;*/
+}
+
+/* line 122, ../sass/_overview.scss */
+.singleTask {
+  text-align: center;
+  font-size: 0.8em;
+  text-shadow: 1px 1px 1px #333333;
+}
+
+/* line 130, ../sass/_overview.scss */
+.lastRow td.projectDates {
+  border-bottom: 1px solid #666666;
+}
+
+/* line 135, ../sass/_overview.scss */
+.primaryTasksRow .emptyTD {
+  background-color: white;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFF6F6F6');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #f1f1f1), color-stop(51%, #e1e1e1), color-stop(100%, #f6f6f6));
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: -o-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  border-bottom: 1px solid #999999;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #999999;
+  /*border:1px solid fuchsia;*/
+}
+/* line 146, ../sass/_overview.scss */
+.primaryTasksRow .emptyTD.last {
+  border-right: 1px solid #999999;
+}
+
+/* line 150, ../sass/_overview.scss */
+.taetigkeitsbox {
+  margin-right: 5px;
+  -webkit-box-shadow: 0px 0px 3px black;
+  -moz-box-shadow: 0px 0px 3px black;
+  box-shadow: 0px 0px 3px black;
+}
+
+/* line 156, ../sass/_overview.scss */
+.lastTR .emptyTD {
+  border-bottom: 1px solid #999999;
+}
+
+/* line 162, ../sass/_overview.scss */
+tr.weeks th:nth-child(2) {
+  border-left: 1px solid #999999;
+}
+
+/* line 165, ../sass/_overview.scss */
+tr.days th:nth-child(2) {
+  border-left: 1px solid #999999;
+}
+
+/* line 169, ../sass/_overview.scss */
+.emptyTD {
+  border-right: 1px solid #999999;
+  /*border-top:1px solid #999;*/
+  background: #fff;
+}
+
+/* line 178, ../sass/_overview.scss */
+.highlightDay {
+  background: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+/* line 183, ../sass/_overview.scss */
+td.singleTask.highlightDay {
+  -webkit-box-shadow: 0px 1px 10px black inset;
+  -moz-box-shadow: 0px 1px 10px black inset;
+  box-shadow: 0px 1px 10px black inset;
+  background: blue !important;
+}
+
+/* line 188, ../sass/_overview.scss */
+td.singleTask:hover {
+  cursor: pointer;
+}
+
+/* line 1, ../sass/_personOverview.scss */
+.personOverview {
+  position: relative;
+}
+/* line 3, ../sass/_personOverview.scss */
+.personOverview .singleTask {
+  color: #fff;
+}
+/* line 8, ../sass/_personOverview.scss */
+.personOverview td.red {
+  background: #BF3030;
+}
+/* line 11, ../sass/_personOverview.scss */
+.personOverview td.blue {
+  background: #1D7373;
+}
+/* line 14, ../sass/_personOverview.scss */
+.personOverview td.green {
+  background: #269926;
+}
+/* line 17, ../sass/_personOverview.scss */
+.personOverview td.orange {
+  background: #BF7120;
+}
+/* line 20, ../sass/_personOverview.scss */
+.personOverview td.lightblue {
+  background: #274E7D;
+}
+/* line 24, ../sass/_personOverview.scss */
+.personOverview .singleUser {
+  width: 85px;
+  border: 1px solid #999999;
+  text-align: center;
+  color: #666;
+  vertical-align: middle;
+  font-size: 0.8em;
+  overflow: hidden;
+  background: #fff;
+}
+/* line 34, ../sass/_personOverview.scss */
+.personOverview .holidays .emptyTD {
+  background-color: white;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFF6F6F6');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #f1f1f1), color-stop(51%, #e1e1e1), color-stop(100%, #f6f6f6));
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: -o-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  background-image: linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+  border-bottom: 1px solid #999999;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #999999;
+}
+/* line 42, ../sass/_personOverview.scss */
+.personOverview .holidays .emptyTD.last {
+  border-right: 1px solid #999999;
+}
+/* line 46, ../sass/_personOverview.scss */
+.personOverview .holidays .holiday {
+  background: #ffdcf9;
+  border: 1px solid #752201;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #666666;
+  font-size: 0.8em;
+  background-color: #f0b7a1;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF0B7A1', endColorstr='#FFBF6E4E');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0b7a1), color-stop(50%, #8c3310), color-stop(51%, #752201), color-stop(100%, #bf6e4e));
+  background-image: -webkit-linear-gradient(top, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%);
+  background-image: -moz-linear-gradient(top, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%);
+  background-image: -o-linear-gradient(top, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%);
+  background-image: linear-gradient(top, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%);
+}
+
+/* line 1, ../sass/_footer.scss */
+footer {
+  font-size: 0.8em;
+  margin-top: 40px;
+  color: #666;
+  border-top: 1px solid #999999;
+  padding-top: 5px;
+}
+
+/* line 15, ../sass/style.scss */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* line 19, ../sass/style.scss */
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+/* line 23, ../sass/style.scss */
+body {
+  background: url("../img/debut_light.png") top center;
+  background-attachment: fixed;
+  font-family: "UbuntuLightRegular",Helvetica,Arial;
+  color: #666;
+  font-size: 1em;
+}
+
+/* line 40, ../sass/style.scss */
+.margin-top50 {
+  margin-top: 50px;
+}
+
+/* line 44, ../sass/style.scss */
+hr {
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  border: none;
+}
+
+/* line 54, ../sass/style.scss */
+.width200 {
+  width: 200px;
+}
+
+/* line 58, ../sass/style.scss */
+.phpError {
+  color: #666;
+}
+
+/* line 61, ../sass/style.scss */
+.hidden {
+  display: none;
+}
+
+/* line 64, ../sass/style.scss */
+.floatLeft {
+  float: left;
+}
+
+/* line 68, ../sass/style.scss */
+.floatRight {
+  float: right;
+}

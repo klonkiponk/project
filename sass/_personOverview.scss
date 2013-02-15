@@ -1,0 +1,60 @@
+.personOverview {
+	position:relative;
+	.singleTask {
+		color:#fff;
+	}
+	
+	td {
+		&.red {
+			background:#BF3030;	
+		}
+		&.blue {
+			background:#1D7373;
+		}
+		&.green {
+			background:#269926;
+		}
+		&.orange {
+			background:#BF7120;
+		}
+		&.lightblue {
+			background:#274E7D;
+		}
+	}
+	.singleUser {
+		width:85px;
+		border: 1px solid #999;
+		text-align:center;
+		color:#666;
+		vertical-align:middle;
+		font-size:0.8em;
+		overflow:hidden;
+		background:#fff;
+	}
+	.holidays .emptyTD {
+		background-color: rgb(255,255,255);
+		@include filter-gradient(#ffffff, #f6f6f6, vertical);
+		@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%));
+		border-bottom:1px solid #999;
+		border-left:none;
+		border-right:none;
+		border-top:1px solid #999;
+		&.last {
+			border-right:1px solid #999;
+		}
+	}
+	.holidays .holiday {
+		background:#ffdcf9;
+		border:1px solid #752201;
+		@include box-shadow(none);
+		text-align: center;
+		color:#fff;
+		@include text-shadow(1px 1px 1px #666);
+		font-size:0.8em;
+
+background-color: #f0b7a1;
+@include filter-gradient(#f0b7a1, #bf6e4e, vertical);
+@include background-image(linear-gradient(top,  #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%));
+
+	}
+}

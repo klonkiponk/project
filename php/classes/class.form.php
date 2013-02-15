@@ -3,7 +3,7 @@ class FORM {
 	public static function projectsSelect(){
 		$sql = "SELECT pid,name FROM projects";
 		$projects = $GLOBALS['DB']->query($sql);
-		$return = '<label for"pid">Projekt</label>
+		$return = '
 		<select id="pid" name="pid">';
 		while($project = $projects->fetch_array())
 			{
@@ -17,8 +17,7 @@ class FORM {
 	public static function usersSelect(){
 		$sql = "SELECT uid,username FROM users";
 		$users = $GLOBALS['DB']->query($sql);
-		$return = '<label for"uid">Person</label>
-		<select id="uid" name="uid">';
+		$return = '<select id="uid" name="uid" class="userSelect">';
 		while($user = $users->fetch_array())
 			{
 				$return .= "<option value=".$user['uid'].">";
@@ -33,7 +32,7 @@ class FORM {
 	{
 		$sql = "SELECT username,uid FROM users GROUP BY username ORDER BY username";
 		$users = $GLOBALS['DB']->query($sql);
-		$return = '<select name="uid">';
+		$return = '<select name="uid" class="userSelect">';
 		while($user = $users->fetch_array())
 		{
 			if($user['uid'] == $current){
@@ -50,22 +49,24 @@ class FORM {
 		return $return;
 	}
 	public static function startDateInput($date = "",$PT= "",$id=""){
-		$return = '<label for="startdate">startdate</label>
-		<input type="text" class="datepicker" id="startdate'.$id.'" name="'.$PT.'startdate" value="'.$date.'">';
+		$return = '<input type="text" class="date datepicker" id="startdate'.$id.$PT.'" name="'.$PT.'startdate" value="'.$date.'">';
+		return $return;
+	}
+	public static function startDateInputForTasks($date = "",$PT= "",$id=""){
+		$return = '<input type="text" class="date datepicker" id="startdatefortasks'.$id.$PT.'" name="'.$PT.'startdate" value="'.$date.'">';
 		return $return;
 	}
 	public static function colorInput(){
 		$return = '<label for="color">Farbe</label>
 		<input type="color" id="color" name="color">';
 		
-		$sql = "SELECT color FROM projects GROUP BY color";
+		$sql = "SELECT name FROM colors GROUP BY name";
 		$colors = $GLOBALS['DB']->query($sql);
-		$return = '<label for"color">Farbe</label>
-		<select id="color" name="color">';
+		$return = '<select id="color" name="color">';
 		while($color = $colors->fetch_array())
 			{
-				$return .= "<option value=".$color['color'].">";
-				$return .= $color['color'];
+				$return .= "<option value=".$color['name'].">";
+				$return .= $color['name'];
 				$return .= "</option>";		
 			};
 		$return .= '</select>';
@@ -73,31 +74,33 @@ class FORM {
 		return $return;
 	}
 	public static function endDateInput($date = "",$PT= "",$id=""){
-		$return = '<label for="enddate">enddate</label>
-		<input type="text" class="datepicker" id="enddate'.$id.'" name="'.$PT.'enddate" value="'.$date.'">';
+		$return = '<input type="text" class="date datepicker" id="enddate'.$id.$PT.'" name="'.$PT.'enddate" value="'.$date.'">';
 		return $return;
 	}
-	public static function submitButton($value){
-		$return ='<input type="submit" value="true" name="'.$value.'">';
+	public static function endDateInputForTasks($date = "",$PT= "",$id=""){
+		$return = '<input type="text" class="date datepicker" id="enddatefortasks'.$id.$PT.'" name="'.$PT.'enddate" value="'.$date.'">';
+		return $return;
+	}
+	public static function submitButton($name,$value="true",$class=""){
+		$return ='<input class="button '.$class.'" type="submit" value="'.$value.'" name="'.$name.'">';
 		return $return;
 	}
 	public static function nameInput(){
-		$return = '<label for="name">Name</label><input type="text" name="name" id="name">';
+		$return = '<input type="text" name="name" id="name">';
 		return $return;
 	}
 	public static function usernameInput($value=""){
-		$return = '<label for="username">Username</label><input type="text" name="username" value="'.$value.'" id="username">';
+		$return = '<input type="text" name="username" value="'.$value.'" id="username">';
 		return $return;
 	}
 	public static function usershortnameInput(){
-		$return = '<label for="usershortname">UserShortName</label><input type="text" name="usershortname" id="usershortname">';
+		$return = '<input type="text" maxlength="2" name="usershortname" class="usershortname">';
 		return $return;
 	}
 	public static function userRolesSelect(){
 		$sql = "SELECT urid,name FROM userroles";
 		$urids = $GLOBALS['DB']->query($sql);
-		$return = '<label for"urid">Nutzerrolle</label>
-		<select id="urid" name="role">';
+		$return = '<select id="urid" name="role">';
 		while($urid = $urids->fetch_array())
 			{
 				$return .= "<option value=".$urid['urid'].">";
@@ -110,8 +113,7 @@ class FORM {
 	public static function userRolesSelectWithActive($current){
 		$sql = "SELECT urid,name FROM userroles";
 		$urids = $GLOBALS['DB']->query($sql);
-		$return = '<label for"urid">Nutzerrolle</label>
-		<select id="urid" name="role">';
+		$return = '<select id="urid" name="role">';
 		while($urid = $urids->fetch_array())
 		{
 			if($urid['urid'] == $current){
@@ -133,15 +135,14 @@ class FORM {
 	
 	
 	public static function passwordInput(){
-		$return = '<label for="password">Passwort</label><input type="text" id="passwort" name="password">';
+		$return = '<input type="text" id="passwort" name="password">';
 		return $return;
 	}
 	
 	public static function taskrolesSelect(){
 		$sql = "SELECT trid,name FROM taskroles";
 		$trids = $GLOBALS['DB']->query($sql);
-		$return = '<label for"trid">TaskRole</label>
-		<select id="trid" name="trid">';
+		$return = '<select id="trid" name="trid">';
 		while($trid = $trids->fetch_array())
 			{
 				$return .= "<option value=".$trid['trid'].">";
@@ -154,8 +155,7 @@ class FORM {
 	public static function taskrolesSelectWithActive($current){
 		$sql = "SELECT trid,name FROM taskroles";
 		$trids = $GLOBALS['DB']->query($sql);
-		$return = '<label for"trid">TaskRole</label>
-		<select id="trid" name="trid">';
+		$return = '<select id="trid" name="trid">';
 		while($trid = $trids->fetch_array())
 		{
 			if($trid['trid'] == $current){
@@ -172,15 +172,15 @@ class FORM {
 		return $return;
 	}
 	public static function createNewTaskEditForm($pid){
-		$return = "<h4>New Task</h4>";
-		$return .= '<form method="post" action="">';
+		$return = '<span class="taskToggler">+</span>';
+		$return .= '<form method="post" action="" class="newTask hidden">';
 		$return .= '<input type="hidden" name="pid" value="'.$pid.'">';
-		$return .= '<input type="hidden" name="editProject" value="true">';
 		$return .= FORM::usersSelect();
-		$return .= FORM::taskrolesSelect();
 		$return .= FORM::startDateInput();
+		$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
 		$return .= FORM::endDateInput();
-		$return .= FORM::submitButton("writeNoteToDB");
+		$return .= FORM::taskrolesSelect();
+		$return .= FORM::submitButton("newTask","speichern","save");
 		$return .= '</form>';
 		
 		

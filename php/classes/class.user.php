@@ -1,6 +1,6 @@
 <?php
 /**
- * primaryTasks class.
+ * user class.
  */
 class user {
 	public $uid;
@@ -25,12 +25,6 @@ class user {
 	    $result = $result->fetch_array()
 	    return $return['username'];			
 	}
-	public function 	
-	SELECT users.username, COUNT(tasks.pid)
-	FROM users
-	LEFT JOIN users.uid ON tasks.uid = users.uid
-	GROUP BY users.uid
-	
 	/**
 	 * __destruct function.
 	 * 

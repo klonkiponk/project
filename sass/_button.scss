@@ -1,0 +1,28 @@
+.button {
+	border-radius:3px;
+	border:1px solid #666;
+	background:#fff;
+	color:#666;
+	font-family:"Dinot",Helvetica,Arial;
+	display:inline-block;
+	width:180px;
+	line-height:normal;
+	height:25px !important;
+	padding:0;
+	font-size:16px;
+	text-align: center;
+	cursor:pointer;
+}
+.button:hover
+{
+ 	background:#666;
+ 	color:#fff;
+}
+.button:active
+{
+	background:#333;
+}
+.button:focus
+{
+	background:#333;
+}

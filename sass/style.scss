@@ -1,0 +1,70 @@
+@import "compass";
+@import "compass/reset";
+@import "fonts";
+@import "globalHeader";
+@import "singleProjectColors";
+@import "headings";
+@import "forms";
+@import "button";
+@import "datePicker";
+@import "layout";
+@import "overview";
+@import "personOverview";
+@import "footer";
+
+* {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+a {
+	color:orange;
+	text-decoration:none;
+}
+body {
+	//background:url('../img/low_contrast_linen.png') top center;
+//	background:url('../img/retina_wood.png') top center;
+//	background:url('../img/dark_wood.png') top center;	
+//	background:url('../img/debut_dark.png') top center;
+	background:url('../img/debut_light.png') top center;
+	background-attachment: fixed;
+	font-family: "UbuntuLightRegular",Helvetica,Arial;
+	color:#666;
+	font-size:1em;
+	//background:#fff;
+}
+strong {
+
+}
+
+
+.margin-top50 {
+	margin-top: 50px;	
+}
+
+hr {
+	visibility:hidden;
+	clear:both;
+	height:0;
+	margin:0;
+	padding:0;
+	width:0;
+	border:none;
+}
+
+.width200{
+	width:200px;
+}
+
+.phpError {
+	color:#666;
+}
+.hidden {
+	display:none;
+}
+.floatLeft {
+	float:left;
+}
+
+.floatRight {
+	float:right;
+}

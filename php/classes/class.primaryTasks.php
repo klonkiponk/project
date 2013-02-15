@@ -25,20 +25,15 @@ class primaryTasks {
 	public function createNewPrimaryTaskEditForm()
 	{
 		$return = "";
-		
-		
-		$return .= '<h4>New Primary Task</h4>';
-		$return .= '<form method="post" action="">';
+		$return .= '<span class="primaryTaskToggler">+</span>';
+		$return .= '<form method="post" action="" class="newPrimaryTask hidden">';
 		$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
-		$return .= '<input type="hidden" name="editProject" value="true">';
-		$return .= '<label>Name</label>';
-		$return .= '<input type="text" name="PTname" value="">';
+		$return .= '<input type="text" class="width200" name="PTname" value="">';
 		$return .= FORM::startDateInput("","PT",$this->pid);
+		$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";		
 		$return .= FORM::endDateInput("","PT",$this->pid);
-		$return .= FORM::submitButton("writePrimaryTaskToDB");
+		$return .= FORM::submitButton("newPrimaryTask","speichern","save");
 		$return .= '</form>';
-		
-		
 		return $return;
 	}	
 	 
@@ -47,25 +42,22 @@ class primaryTasks {
 		$sql = "SELECT name,startdate,enddate,ptid FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
 		$result = $GLOBALS['DB']->query($sql);
 		$return = "";
-		$return .= "<h4>Primary Tasks</h4>"; 
 		while ($primaryTask = $result->fetch_array())
 	    {
 			$return .= '<form method="post">';
-			
 			$startDate = strtotime($primaryTask['startdate']);
 			$endDate   = strtotime($primaryTask['enddate']);
-			$return .= '<label>Name</label>';
-			$return .= '<input type="text" name="PTname" value="'.$primaryTask['name'].'">';
+			$return .= '<input type="text" class="width200"name="PTname" value="'.$primaryTask['name'].'">';
 			$return .= '<input type="hidden" value="'.$primaryTask['ptid'].'" name="ptid">';
-			$return .= FORM::startDateInput(date("Y-m-d",$startDate),"PT",$this->pid);
-			$return .= FORM::endDateInput(date("Y-m-d",$endDate),"PT",$this->pid);
-			$return .= '<input type="submit" name="PT" value="delete">';
-			$return .= '<input type="submit" name="PT" value="save">';
+			$return .= FORM::startDateInput(date("Y-m-d",$startDate),"PT",$primaryTask['ptid']);
+			$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
+			$return .= FORM::endDateInput(date("Y-m-d",$endDate),"PT",$primaryTask['ptid']);
+			$return .= FORM::submitButton("primaryTask","speichern","save");
+			$return .= FORM::submitButton("primaryTask","löschen","delete");
 			$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
-			$return .= '<input type="hidden" name="editProject" value="true">';
 			$return .= '</form>';
 	    }
-	    return $return;	
+	    return $return;
 	}
 	 
 	  
@@ -73,95 +65,64 @@ class primaryTasks {
 	 
 	public function getTasksFromDB()
 	{
-	
-		//convert our Days to Strings like they are stored in MYSQL
-		//$sqlStartDate = date("Y-m-d",$this->firstDay);
-		//$sqlEndDate = date("Y-m-d",$this->lastDay);
-		//startdate <= ".$sqlEndDate." AND enddate >= ".$sqlStartDate." AND
-
 		$sql = "SELECT name,startdate,enddate FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
 		$result = $GLOBALS['DB']->query($sql);
-		
-		
-		
 		$return = "";
-		$actualDate = 0;
+		$actualDate = GLB::$firstDay;
 	    
+		
+		
+		
 		while ($primaryTask = $result->fetch_array())
 	    {
-			
-		    $startDate = strtotime($primaryTask['startdate']);
+			//convert the 2013-04-01 Strings to a calculateable Date
+			$startDate = strtotime($primaryTask['startdate']);
 			$endDate   = strtotime($primaryTask['enddate']);
 			
-			//$startDate <= $this->lastDay AND $endDate >= $this->firstDay
+			//Set Startdates to Monday and Enddates to Friday
+			$startDate = GLB::setToMondayIfWeekDay($startDate);
+			$endDate = GLB::setToMondayIfWeekDay($endDate);
+			
 			if($startDate <= GLB::$lastDay AND $endDate >= GLB::$firstDay)
 			{
-				if ($actualDate==0)
-				{
-					if (date("z",$endDate) !== date("z",GLB::$firstDay))
-					{
-						$duration = $this->calculateDuration($startDate,GLB::$firstDay);
+				//Cut Of The Tasks before the given TimeRange and After the Given TimeRange
+				if($startDate < GLB::$firstDay){
+					$startDate = GLB::$firstDay;
+				}
+				if($endDate > GLB::$lastDay){
+					$endDate = GLB::$lastDay;
+				}
+				
+				
+				if ($startDate !== $actualDate) {
+					$return .= GLB::generateEmptyTDs($startDate,$actualDate);
+					//now set actualDate to StartDate;
+					$actualDate = $startDate;
+				}
+				
+				if ($startDate == $actualDate) {
+					/**********
 					
-						for($i = 1; $i <= $duration;$i++){
-							$return .= '<td class="emptyTD"></td>';
-						}
-						//$return .= '<td class="" colspan="'.$duration.'"></td>';
-					}
+					DO OUTPUT THE TASKS
+					
+					**********/
+					//DEBUG echo "<br>END: ".date("d.m.Y",$endDate);
+					//DEBUG echo "<br>START: ".date("d.m.Y",$startDate);
+					$return .= GLB::generatePrimaryTask($endDate,$startDate,$primaryTask['name']);
+					$actualDate = $endDate+86400;
+					$actualDate = GLB::setToMondayIfWeekDay($actualDate);
 				}
-				
-				if($actualDate!=0){
-					$actualDate = strtotime($actualDate);
-					if (date("z",$endDate) !== date("z",$actualDate))
-					{
-						$duration = $this->calculateDuration($startDate,$actualDate);
-						$duration = $duration-1;
-						if ($duration !== 0){
-							for($i = 1; $i <= $duration;$i++){
-								$return .= '<td class="emptyTD"></td>';
-							}
-							//$return .= '<td colspan="'.$duration.'"></td>';
-						}
-					}
-				}
-				
-				//make a td with a colspan from ##zero## until enddate //alternatively from the last task due date
-				//use php date function to get it.
-				
-				$duration = $this->calculateDuration($endDate,$startDate);
-				
-				
-				if ($duration !== 0){
-					$duration = $duration+1;
-				}
-				
-				$return .= '<td colspan="'.$duration.'" class="'.$primaryTask["name"].' projectMainDates"><div class="primaryTaskName">'.$primaryTask["name"].'</div></td>';
-				
-				
-				//now return the task itself
-				$actualDate = $primaryTask['enddate'];
-				
-			}//end of if, that is checking if task is in valuable Range
-	    }//end of while for eah simple Task		
-		if ($actualDate !== 0) {
-	    $actualDate = strtotime($actualDate);
-			$duration = $this->calculateDuration(GLB::$lastDay,$actualDate);
-			if ($duration !== 0){
-				for($i = 1; $i <= $duration;$i++){
-					$return .= '<td class="emptyTD"></td>';
-				}
-				//$return .= '<td colspan="'.$duration.'"></td>';
 			}
 		}
-		
+		/**********
+		NOW generate the emptyTDs for the End of The Month*/
+		//Here it is Important to get the Last Day also as a Empty Day
+		$return .= GLB::generateEmptyTDsWithLast(GLB::$lastDay+86400,$actualDate);
+		/***********/
+		/******************************
+			$return .= '<td colspan="'.$duration.'" class="'.$primaryTask["name"].' projectMainDates"><div class="primaryTaskName">'.		$primaryTask["name"].'</div></td>';				
+		******************************/
 	    return $return;
-	}
-	
-	//allowed are time values, so do a stingttotime before inserting the variabled here
-	private function calculateDuration($endDate,$startDate)
-	{
-		$duration = $endDate - $startDate;
-		$duration = $duration/"86400";
-		return $duration;
-	}
-}
+	}//end of function
+}//end of class
 ?>

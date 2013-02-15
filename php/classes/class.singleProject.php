@@ -5,7 +5,6 @@
 class singleProject {
 	public $pid;
 	public $lastMonth;
-	
 	public function __construct($pid)
 	{
 		$this->pid = $pid;
@@ -16,44 +15,53 @@ class singleProject {
 		$this->projectName = $singleProject['name'];
 		$this->projectStartDate = $singleProject['startdate'];
 		$this->projectEndDate = $singleProject['enddate'];
+		$this->color = "";
+		$this->inputs = "";
+		$this->formBegin = "";
+		$this->formEnd ="";
+		$this->name = "";
+		$this->dateInput = "";
 	}
 	
 	public function getDetailsForSingleProjectEditForm ()
 	{
-		$return = '<h2>Edit an Project</h2>';
-		$return .= '<form method="post">';
-		$return .= '<label for="name">Name</label><input type="text" name="name" id="name" value="'.$this->projectName.'">';
+		$this->formBegin .= '<form method="post" action="">';
+
+		$this->name .= '<input type="text" class="width200" name="name" id="name" value="'.$this->projectName.'">';
+
+		$this->dateInput .= FORM::startDateInput($this->projectStartDate,"Project",$this->pid);
+		$this->dateInput .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
+		$this->dateInput .= FORM::endDateInput($this->projectEndDate,"Project",$this->pid);
 		
-		$return .= FORM::startDateInput($this->projectStartDate,"Project",$this->pid);
-		$return .= FORM::endDateInput($this->projectEndDate,"Project",$this->pid);
-		
-		$sql = "SELECT color FROM projects GROUP BY color ORDER BY color";
+		$sql = "SELECT name FROM colors GROUP BY name";
 		$colors = $GLOBALS['DB']->query($sql);
-		$return .= '<label for"color">Farbe</label>
-		<select id="color" name="color">';
+
+
+
+		
+
+		$this->color = '<select id="color" name="color">';
 		while($color = $colors->fetch_array())
 			{
-				if($color['color'] == $this->projectColor){
-					$return .= "<option selected value=".$color['color'].">";
-					$return .= $color['color'];
-					$return .= "</option>";
+				if($color['name'] == $this->projectColor){
+					$this->color .= "<option selected value=".$color['name'].">";
+					$this->color .= $color['name'];
+					$this->color .= "</option>";
 				} else {
-					$return .= "<option value=".$color['color'].">";
-					$return .= $color['color'];
-					$return .= "</option>";
+					$this->color .= "<option value=".$color['name'].">";
+					$this->color .= $color['name'];
+					$this->color .= "</option>";
 				}
 			};
-		$return .= '</select>';
-		$return .= '<input type="hidden" value="'.$this->pid.'">';
-		$return .= '<input type="submit" name="project" value="delete">';
-		$return .= '<input type="submit" name="project" value="save">';
-		$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
-		$return .= '<input type="hidden" name="editProject" value="true">';
-		$return .= "</form>";
-		$return .= $this->getPrimaryTasksEditForm();
-		return $return;
+		$this->color .= '</select>';		
+
+
+		
+		
+		$this->formEnd .= "</form>";
+		return $this;
 	}
-	private function getPrimaryTasksEditForm(){
+	public function getPrimaryTasksEditForm(){
 		$return = new primaryTasks($this->pid);
 		return $return->getTasksFromDBEditForm();
 	}
@@ -70,13 +78,15 @@ class singleProject {
 			<tr class="primaryTasksRow '.$this->projectColor.'">
 			<td class="'.$this->projectName.' projectSingleName" rowspan="'.$rowspan.'">
 				'.$this->projectName.'
-			</td>';//Count of different Users for this Project: '.$this->userCount.'</td>';
+			</td>'."\n";//Count of different Users for this Project: '.$this->userCount.'</td>';
 	    return $return;
 	}
 	public function __toString()
 	{
+		$return = "";
 		$contents = $this->getUserRow();
-		$return = $this->getDetailsForSingleProject();
+		$return .= '<!-- DEBUG::NEW PROJECT -->';
+		$return .= $this->getDetailsForSingleProject();
 		$return .= $this->getPrimaryTasks();
 		$return .= "</tr>";
 		$return .= $contents;
