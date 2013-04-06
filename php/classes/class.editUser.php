@@ -37,7 +37,7 @@ class editUser {
 	
 	public function editUser()
 	{
-		$sql = "SELECT username,usershortname,role FROM users WHERE uid=".$_POST['uid'];
+		$sql = "SELECT username,usershortname,role FROM users WHERE role <> 99 AND uid=".$_POST['uid'];
 		$user = $GLOBALS['DB']->query($sql);
 		$user = $user->fetch_array();
 		$return = "";

@@ -1,45 +1,27 @@
-/* line 1, ../sass/iOS.scss */
-/* line 2, ../sass/iOS.scss */
-#globalHeader {
-  display: none;
-}
-
-/* line 4, ../sass/iOS.scss */
-/* line 7, ../sass/iOS.scss */
-footer {
-  display: none;
-}
-
-/* line 7, ../sass/iOS.scss */
-/* line 12, ../sass/iOS.scss */
-nav {
-  display: none;
-}
-
-/* line 17, ../sass/iOS.scss */
+/* line 10, ../sass/iOS.scss */
 .overview {
   position: static;
 }
 
-/* line 22, ../sass/iOS.scss */
+/* line 15, ../sass/iOS.scss */
 form.next, form.previous {
   position: absolute;
   top: 35%;
 }
-/* line 25, ../sass/iOS.scss */
+/* line 18, ../sass/iOS.scss */
 form.next input[type=submit], form.previous input[type=submit] {
   width: 100px;
 }
-/* line 27, ../sass/iOS.scss */
+/* line 20, ../sass/iOS.scss */
 form.next input[type=submit]:hover, form.previous input[type=submit]:hover {
   cursor: pointer;
   background: #F2F2F2;
 }
-/* line 31, ../sass/iOS.scss */
+/* line 24, ../sass/iOS.scss */
 form.next input[type=submit]:active, form.previous input[type=submit]:active {
   background: silver;
 }
-/* line 35, ../sass/iOS.scss */
+/* line 28, ../sass/iOS.scss */
 form.next button, form.previous button {
   background: none;
   border: none;
@@ -50,23 +32,23 @@ form.next button, form.previous button {
   height: 200px;
   background: rgba(255, 255, 255, 0.4);
 }
-/* line 44, ../sass/iOS.scss */
+/* line 37, ../sass/iOS.scss */
 form.next button:hover, form.previous button:hover {
   color: #666;
   cursor: pointer;
 }
 
-/* line 50, ../sass/iOS.scss */
+/* line 43, ../sass/iOS.scss */
 form.next {
   right: -2px;
 }
 
-/* line 53, ../sass/iOS.scss */
+/* line 46, ../sass/iOS.scss */
 form.previous {
   left: -10px;
 }
 
-/* line 58, ../sass/iOS.scss */
+/* line 51, ../sass/iOS.scss */
 .wrapper {
   margin: 0 auto;
   width: 980px;

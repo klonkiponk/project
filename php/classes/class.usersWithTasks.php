@@ -29,7 +29,7 @@ class usersWithTasks {
 	
 	public function createUserRow()
 	{
-		$sql = "SELECT users.uid,users.usershortname FROM users,tasks WHERE tasks.uid = users.uid and pid=".$this->pid." GROUP BY users.uid";
+		$sql = "SELECT users.uid,users.usershortname FROM users,tasks WHERE tasks.uid = users.uid and pid=".$this->pid." AND users.role <> 99 GROUP BY users.uid ORDER BY users.username ASC";
 		$result = $GLOBALS['DB']->query($sql);
 	    $this->userCount = $result->num_rows; //ANZAHL USER für Project
 		$lastTR = "";		

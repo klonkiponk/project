@@ -1,24 +1,11 @@
-/*@font-face {
-	 font-family: 'Avenir';
-	 src: url("./fonts/AvenirNext-Regular.ttf") format("truetype");
-}*/
-/*@font-face {
-	 font-family: 'AvenirBold';
-	 src: url("./fonts/AvenirNext-Bold.ttf") format("truetype");
-}*/
 @font-face {
 	font-family: 'BlueHighway';
 	src: url("./fonts/bluehigd.ttf") format("truetype");
 }
-/*@font-face {
-	font-family: "Dinot";
-	src: url(".fonts/DINOT.ttf") format("truetype");
-}*/
-
-/*@font-face {
-	font-family: "DinotMedium";
-	src: url(".fonts/DINOT-Medium.ttf") format("truetype");	
-}*/
+@font-face {
+	font-family: "DIN";
+	src: url("./fonts/DINOT.otf") format("opentype");
+}
 @font-face {
   font-family: "Symbol";
   src:  url('fonts/Symbol.eot');
@@ -29,15 +16,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-
-@font-face {
-  font-family: 'UbuntuLightRegular';
-  src: url("./fonts/ubuntu-light-webfont.eot");
-  src: url("./fonts/ubuntu-light-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/ubuntu-light-webfont.woff") format("woff"), url("./fonts/ubuntu-light-webfont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  }
 
 
 [class^="icon-"]:before,

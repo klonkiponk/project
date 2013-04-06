@@ -4,9 +4,14 @@
 		color:#fff;
 	}
 	
+	td.singleTask:hover {
+		cursor:default;
+	}
+	
 	td {
 		&.red {
-			background:#BF3030;	
+			background:#FF4040;
+			border:1px solid #A60000;	
 		}
 		&.blue {
 			background:#1D7373;
@@ -19,6 +24,16 @@
 		}
 		&.lightblue {
 			background:#274E7D;
+		}
+		&.blue1 {
+			background:#003DA6;
+		}
+		&.blue2 {
+			background:#3065BF;
+		}
+		&.lila {
+			background:#ad66d5;
+			border:1px solid #5F2580;
 		}
 	}
 	.singleUser {
@@ -44,17 +59,12 @@
 		}
 	}
 	.holidays .holiday {
-		background:#ffdcf9;
-		border:1px solid #752201;
+		background:#E67DCC;
+		border:1px solid #AD729E;
 		@include box-shadow(none);
 		text-align: center;
 		color:#fff;
-		@include text-shadow(1px 1px 1px #666);
+		@include text-shadow(1px 1px 1px #333);
 		font-size:0.8em;
-
-background-color: #f0b7a1;
-@include filter-gradient(#f0b7a1, #bf6e4e, vertical);
-@include background-image(linear-gradient(top,  #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%));
-
 	}
 }

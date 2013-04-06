@@ -20,7 +20,7 @@ class user {
 
 	private function getUsername()
 	{
-		$sql = "SELECT username FROM users WHERE uid=".$this->uid;
+		$sql = "SELECT username FROM users WHERE uid=".$this->uid." AND role <> 99";
 		$result = $GLOBALS['DB']->query($sql);
 	    $result = $result->fetch_array()
 	    return $return['username'];			

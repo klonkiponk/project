@@ -29,9 +29,9 @@ class singleProject {
 
 		$this->name .= '<input type="text" class="width200" name="name" id="name" value="'.$this->projectName.'">';
 
-		$this->dateInput .= FORM::startDateInput($this->projectStartDate,"Project",$this->pid);
+		$this->dateInput .= FORM::startDateInput($this->projectStartDate,"",$this->pid);
 		$this->dateInput .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
-		$this->dateInput .= FORM::endDateInput($this->projectEndDate,"Project",$this->pid);
+		$this->dateInput .= FORM::endDateInput($this->projectEndDate,"",$this->pid);
 		
 		$sql = "SELECT name FROM colors GROUP BY name";
 		$colors = $GLOBALS['DB']->query($sql);
@@ -77,6 +77,9 @@ class singleProject {
 		$return = '
 			<tr class="primaryTasksRow '.$this->projectColor.'">
 			<td class="'.$this->projectName.' projectSingleName" rowspan="'.$rowspan.'">
+				<span class="startDate">'.$this->projectStartDate.'</span>
+				
+				
 				'.$this->projectName.'
 			</td>'."\n";//Count of different Users for this Project: '.$this->userCount.'</td>';
 	    return $return;

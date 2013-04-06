@@ -87,7 +87,7 @@ class editProject {
 	    return $return;
 	}
 	public function newProjectForm(){
-		$return = '<form method="post" action="editProjects">';
+		$return = '<form method="post" action="editProjects.php">';
 		$return .= '<label class="icon-bookmark projectname">Projektname</label><label class="icon-calendar projecttimerange">Zeitraum</label><label class="projectcolor icon-th-large">ProjektFarbe</label><br><br>';
 		$return .= FORM::nameInput();
 		$return .= FORM::startDateInput();

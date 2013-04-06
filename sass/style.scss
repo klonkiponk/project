@@ -4,8 +4,8 @@
 @import "globalHeader";
 @import "singleProjectColors";
 @import "headings";
-@import "forms";
 @import "button";
+@import "forms";
 @import "datePicker";
 @import "layout";
 @import "overview";
@@ -27,7 +27,7 @@ body {
 //	background:url('../img/debut_dark.png') top center;
 	background:url('../img/debut_light.png') top center;
 	background-attachment: fixed;
-	font-family: "UbuntuLightRegular",Helvetica,Arial;
+	font-family: "DIN","UbuntuLightRegular",Helvetica,Arial;
 	color:#666;
 	font-size:1em;
 	//background:#fff;

@@ -20,8 +20,15 @@ table {
 	text-align:center;
 	color:#666;
 	background:#fff;
+	font-size: 0.9em;
 }
 
+
+.startDate {
+	display:none;
+	font-weight: 0.5em !important;
+}
+	
 td {
 	height:20px;
 	border-collapse:collapse;
@@ -44,7 +51,7 @@ td {
 .calendarMonth {
 	text-align:center;
 	border:1px solid #000;	
-	font-size: 1.2em;
+	font-size: 1.1em;
 	padding:5px;
 	padding-top: 3px;
 	@include box-shadow(0px 0px 3px #666 inset);
@@ -98,6 +105,15 @@ td {
 	height:100%;
 	width:100%;
 //	background:fuchsia;
+	&:hover .primaryTaskDetails {
+		background:#fff;
+		min-width:300px;
+		min-height:50px;
+		border:1px solid #666;
+		opacity: 1;
+		color:#666;
+		@include box-shadow(1px 1px 5px #666);
+	}
 }
 .primaryTaskName {
 	position:absolute;
@@ -107,7 +123,19 @@ td {
 	height:21px;
 	padding-top:1px;
 	color:#666;
+	z-index:500;
 	/*background:fuchsia;*/
+}
+.primaryTaskDetails {
+	position:absolute;
+	height:0;
+	width:0;
+	opacity:0;
+	left:-1px;
+	top:-1px;
+	@include transition(all 0.5s);
+	padding:10px;
+	z-index:9999;
 }
 .projectDates {
 	/*border:1px solid fuchsia;
@@ -119,16 +147,23 @@ td {
 	text-align:center;*/	
 }
 
+.today {
+	background:lightblue !important;
+}
+
 .singleTask {
 	text-align:center;
 //	border:1px solid #000;
 	font-size:0.8em;
-	@include text-shadow(1px 1px 1px #333);
+	//@include text-shadow(1px 1px 1px #333);
 	//@include box-shadow(0px 1px 10px #fff inset);
 }
 
 .lastRow td.projectDates {
 	border-bottom:1px solid #666;
+}
+.primaryTaskRow {
+
 }
 .primaryTaskRow td{
 }
@@ -177,12 +212,12 @@ tr.days th:nth-child(2){
 
 .highlightDay {
 	background:rgba(0,0,0,0.2);
-	color:#333;
+	color:#fff !important;
 }
 
 td.singleTask.highlightDay {
-	@include box-shadow(0px 1px 10px #000 inset);
-	background:blue !important;
+	@include box-shadow(0px 0px 20px #fff inset, 0px 0px 1px #000 inset);
+	background:#73A7FF !important;
 //	border:1px solid darkblue;
 }
 td.singleTask:hover {

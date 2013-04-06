@@ -1,3 +1,4 @@
+<?php require_once('php/inc.sessionCheck.php');?>
 <!DOCTYPE html>
 <html>
 <?php include('php/html/inc.head.php')?>
@@ -24,9 +25,11 @@
 
 <h2 class="icon-bookmark">Projekt bearbeiten</h2>
 <?php
+		if($_SESSION['role']==99){
+
 	$editProject = new editProject();
 	echo $editProject->createEditFormForExistingProject($_POST['pid']);
-		
+}		
 ?>
 </div><?php /*editWrapper end*/?>
 <?php include('php/html/inc.footer.php')?>

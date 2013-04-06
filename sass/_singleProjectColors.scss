@@ -4,6 +4,61 @@ SingleProjectColors
 
 \********************/
 
+.blue1 {
+	color:#fff;
+	&.userTaskRow1 td.singleTask {
+	background:#003da6;
+	}
+	&.userTaskRow2 td.singleTask {
+	background:#3065bf;
+	}
+	&.userTaskRow3 td.singleTask {
+	background:#005eff;
+	}
+	&.userTaskRow4 td.singleTask {
+	background:#4087ff;
+	}
+	&.userTaskRow5 td.singleTask {
+	background:#71a7ff;
+	}
+}
+.blue2 {
+	color:#fff;
+	&.userTaskRow1 td.singleTask {
+	background:#10387c;
+	}
+	&.userTaskRow2 td.singleTask {
+	background:#3F5D8F;
+	}
+	&.userTaskRow3 td.singleTask {
+	background:#3065BF;
+//	border:1px solid #3f5d8f;
+	}
+	&.userTaskRow4 td.singleTask {
+	background:#6290DF;
+	}
+	&.userTaskRow5 td.singleTask {
+	background:#83A5DF;
+	}
+}
+.lila {
+	color:#fff;
+	&.userTaskRow1 td.singleTask {
+	background:#48036f;
+	}
+	&.userTaskRow2 td.singleTask {
+	background:#5f2580;
+	}
+	&.userTaskRow3 td.singleTask {
+	background:#7109aa;
+	}
+	&.userTaskRow4 td.singleTask {
+	background:#9f3ed5;
+	}
+	&.userTaskRow5 td.singleTask {
+	background:#ad66d5;
+	}
+}
 .red.userTaskRow1 td.singleTask{
 	background:#A60000;
 	color:#fff;

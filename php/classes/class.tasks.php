@@ -23,22 +23,22 @@ class tasks {
 	 * getTasksfromDB function.
 	 * 
 	 * @access private
-	 * @return string with primaryTask <td>'s
 	 */
 	public function printTask(){
-		$sql = "SELECT trid,startdate,enddate FROM tasks WHERE pid=".$this->pid." AND uid=".$this->uid." AND tid=".$this->tid." ORDER BY startdate";
+		$sql = "SELECT trid,startdate,enddate,ordering FROM tasks WHERE pid=".$this->pid." AND uid=".$this->uid." AND tid=".$this->tid." ORDER BY startdate";
 		$tasks = $GLOBALS['DB']->query($sql);
 		$return = "";
 		while ($task = $tasks->fetch_array())
 	    {
 			$return .= "<form method='post'>";
 			$return .= FORM::userSelectWithActive($this->uid);
-			$return .= FORM::startDateInputForTasks($task['startdate'],"Task",$this->tid);
+			$return .= FORM::startDateInputForTasks($task['startdate'],"",$this->tid);
 			$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
-			$return .= FORM::endDateInputForTasks($task['enddate'],"Task",$this->tid);
+			$return .= FORM::endDateInputForTasks($task['enddate'],"",$this->tid);
 			$return .= FORM::taskrolesSelectWithActive($task['trid']);
 			$return .= '<input type="hidden" name="tid" value="'.$this->tid.'">';
 			$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
+			$return .= FORM::prioSelector($task['ordering']);			
 			$return .= FORM::submitButton("editTask","speichern","save");
 			$return .= FORM::submitButton("editTask","löschen","delete");			
 			$return .= "</form>";

@@ -9,6 +9,8 @@ class GLB {
 	public static $plainLastDay;
 	public static $workDayCountFirstMonth;
 	public static $workDayCountLastMonth;
+	
+	
 	//function returns string with one Month added to String in this pattern: YYYY-MM-DD
 	public static function addOneMonth()
 	{
@@ -63,12 +65,22 @@ class GLB {
 		{
 			if ((date("N",$i) == 6) OR (date("N",$i) == 7)){
 			} else {
+				
+				
+				$today = "";
+				if (date("d-m-Y") == date("d-m-Y",$i))
+				{
+					$today = "today";
+				}
+				
 				//DEBUG$return .= date("d.m.Y",$i)."<br>";
-				$return .= '<td class="emptyTD day'.date("d",$i).'" id="'.date("Y-m-d",$i).'"></td>'."\n";
+				$return .= '<td class="emptyTD '.$today.' day'.date("d",$i).'" id="'.date("Y-m-d",$i).'"></td>'."\n";
 			}
 		}
 		return $return;
 	}
+	
+	
 	
 	public static function generateEmptyTDsWithLast($endDate,$startDate){
 		$return = "";
@@ -89,7 +101,7 @@ class GLB {
 	
 	
 	
-	public static function generatePrimaryTask($endDate,$startDate,$name){
+	public static function generatePrimaryTask($endDate,$startDate,$name,$description=""){
 		$return = "";
 		//HERE <= because we also need the Last Day
 		$duration = 0;
@@ -101,9 +113,12 @@ class GLB {
 				//$return .= "TaskDay: ".date("d.m.Y",$i)."<br>";
 			}
 		}
-		$return .= '<td colspan="'.$duration.'" class="'.$name.' projectMainDates"><div class="primaryTaskRelativeDiv"><div class="primaryTaskName">'.$name.'</div></div></td>'."\n";				
+		$return .= '<td colspan="'.$duration.'" class="'.$name.' projectMainDates"><div class="primaryTaskRelativeDiv"><div class="primaryTaskName">'.$name.'</div><div class="primaryTaskDetails">'.$description.'</div></div></td>'."\n";				
 		return $return;
 	}
+	
+	
+	
 		public static function generateHoliday($endDate,$startDate,$name){
 		$return = "";
 		//HERE <= because we also need the Last Day
@@ -203,6 +218,8 @@ class GLB {
 				</form>';
 		return $return;
 	}
+	
+	
 	public static function getNameFromTaskRoles($trid)
 	{
 		$sql = "SELECT name,color FROM taskroles WHERE trid=".$trid;

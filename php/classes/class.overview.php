@@ -28,7 +28,7 @@ class overview {
 		//echo " - ";
 		//echo date("M",GLB::$lastDay);
 		
-		$sql = "SELECT pid,startdate,enddate FROM projects";
+		$sql = "SELECT pid,startdate,enddate FROM projects ORDER BY ordering DESC";
 		$result = $GLOBALS['DB']->query($sql);
 		
 		

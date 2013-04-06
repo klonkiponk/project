@@ -1,3 +1,4 @@
+<?php require_once('php/inc.sessionCheck.php');?>
 <!DOCTYPE html>
 <html>
 <?php include('php/html/inc.head.php')?>
@@ -19,13 +20,16 @@
 		require_once('etc/inc.constants.php');    
 	    require_once('php/inc.includeClasses.php');
 		require_once('php/postHandlers.php');	
+			if($_SESSION['role']==99){
+
 		$selectProject = new editProject();
 		echo $selectProject->getAllProjects();				
+}
 	?>
 	
 	
 	<h2 class="icon-bookmark margin-top50">Neues Projekt anlegen</h2>
-	<a class="button" href="newProject.php">Neues Projekt anlegen</a>
+<form action="newProject.php"><input class="button" type="submit" value="neues Projekt"></form>
 
 </div><?php /*editWrapper end*/?>
 <?php include('php/html/inc.footer.php')?>

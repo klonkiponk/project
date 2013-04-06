@@ -29,7 +29,7 @@
 	include_once('php/classes/class.editProject.php');
 	include_once('php/classes/class.editUser.php');
 	include_once('php/classes/class.personOverview.php');
-	include_once('php/classes/class.holidays.php');		
-
-	include_once('php/inc.jQuery.php');
+	include_once('php/classes/class.holidays.php');
+	include_once('php/classes/class.editTaskroles.php');
+	
 ?>

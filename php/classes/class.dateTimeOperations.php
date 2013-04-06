@@ -57,8 +57,6 @@ class dateTimeOperations
 	}
 	
 	
-	//Prints out the TH for a CalendarWeek
-	//Cuts it to the Integer itself, if the colspan is to less and would make a 2 row TH
 	private function calendarMonth()
 	{
 		$calendarWeek = '<th class="calendarMonth" colspan="'.GLB::$workDayCountFirstMonth.'">'.date("M",GLB::$firstDay).'</th>';
@@ -127,7 +125,14 @@ class dateTimeOperations
 					if(date("m",$day) == $MONAT){
 						$firstMonthDayCount++;
 					}
-					$DAYs .= '<th class="calendarDay day'.date("d",$day).'">';
+					
+					$today = "";					
+					if (date("d-m-Y") == date("d-m-Y",$day))
+					{
+						$today = "today";
+					}
+					
+					$DAYs .= '<th class="calendarDay day'.date("d",$day).' '.$today.'">';
 					$DAYs .= date("d",$day);
 					$DAYs .= '</th>';
 					$monatsTageCount++;

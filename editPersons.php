@@ -1,3 +1,4 @@
+<?php require_once('php/inc.sessionCheck.php');?>
 <!DOCTYPE html>
 <html>
 <?php include('php/html/inc.head.php')?>
@@ -23,12 +24,14 @@
 
 <h2 class="icon-user">Person bearbeiten</h2>
 <?php
+		if($_SESSION['role']==99){
+
 		$form = new editUser();
 		echo $form->selectUser();
-
+}
 ?>
 <h2 class="icon-user margin-top50">Neue Person anlegen</h2>
-<a class="button" href="newPerson.php">Neue Person anlegen</a>
+<form action="newPerson.php"><input class="button" type="submit" value="neue Person"></form>
 </div><?php /*editWrapper end*/?>
 <?php include('php/html/inc.footer.php')?>
 </div><?php /*wrapper end */?>

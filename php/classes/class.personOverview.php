@@ -21,7 +21,7 @@ class personOverview {
 		/**********************\
 			start here with the first TRs
 		\**********************/
-		$sql = "SELECT username, usershortname, uid FROM users";
+		$sql = "SELECT username, usershortname, uid FROM users WHERE role <> 99";
 		$users = $GLOBALS['DB']->query($sql);		
 		
 		$emptyRowColspan = GLB::$workDayCountFirstMonth+GLB::$workDayCountLastMonth+1;

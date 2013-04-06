@@ -28,10 +28,11 @@ class primaryTasks {
 		$return .= '<span class="primaryTaskToggler">+</span>';
 		$return .= '<form method="post" action="" class="newPrimaryTask hidden">';
 		$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
-		$return .= '<input type="text" class="width200" name="PTname" value="">';
-		$return .= FORM::startDateInput("","PT",$this->pid);
+		$return .= '<input type="text" class="width200" name="name" value="" placeholder="Name">';
+		$return .= '<input type="text" class="date datepicker" id="12345startdate'.$this->pid.'" name="startdate" value="" placeholder="von">';
 		$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";		
-		$return .= FORM::endDateInput("","PT",$this->pid);
+		$return .= '<input type="text" class="date datepicker" id="67890enddate'.$this->pid.'" name="enddate" value="" placeholder="bis">';
+		$return .= '<input type="text" class="width200" name="description" placeholder="Beschreibung">';		
 		$return .= FORM::submitButton("newPrimaryTask","speichern","save");
 		$return .= '</form>';
 		return $return;
@@ -39,7 +40,7 @@ class primaryTasks {
 	 
 	public function getTasksFromDBEditForm()
 	{
-		$sql = "SELECT name,startdate,enddate,ptid FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
+		$sql = "SELECT name,startdate,enddate,ptid,description FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
 		$result = $GLOBALS['DB']->query($sql);
 		$return = "";
 		while ($primaryTask = $result->fetch_array())
@@ -47,11 +48,12 @@ class primaryTasks {
 			$return .= '<form method="post">';
 			$startDate = strtotime($primaryTask['startdate']);
 			$endDate   = strtotime($primaryTask['enddate']);
-			$return .= '<input type="text" class="width200"name="PTname" value="'.$primaryTask['name'].'">';
+			$return .= '<input type="text" class="width200"name="name" value="'.$primaryTask['name'].'">';
 			$return .= '<input type="hidden" value="'.$primaryTask['ptid'].'" name="ptid">';
-			$return .= FORM::startDateInput(date("Y-m-d",$startDate),"PT",$primaryTask['ptid']);
+			$return .= FORM::startDateInput(date("Y-m-d",$startDate),"",$primaryTask['ptid']);
 			$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
-			$return .= FORM::endDateInput(date("Y-m-d",$endDate),"PT",$primaryTask['ptid']);
+			$return .= FORM::endDateInput(date("Y-m-d",$endDate),"",$primaryTask['ptid']);
+			$return .= '<input type="text" class="width200" name="description" value="'.$primaryTask['description'].'">';			
 			$return .= FORM::submitButton("primaryTask","speichern","save");
 			$return .= FORM::submitButton("primaryTask","löschen","delete");
 			$return .= '<input type="hidden" name="pid" value="'.$this->pid.'">';
@@ -65,7 +67,7 @@ class primaryTasks {
 	 
 	public function getTasksFromDB()
 	{
-		$sql = "SELECT name,startdate,enddate FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
+		$sql = "SELECT name,startdate,enddate,description FROM primarytasks WHERE pid=".$this->pid." ORDER BY startdate";
 		$result = $GLOBALS['DB']->query($sql);
 		$return = "";
 		$actualDate = GLB::$firstDay;
@@ -108,7 +110,7 @@ class primaryTasks {
 					**********/
 					//DEBUG echo "<br>END: ".date("d.m.Y",$endDate);
 					//DEBUG echo "<br>START: ".date("d.m.Y",$startDate);
-					$return .= GLB::generatePrimaryTask($endDate,$startDate,$primaryTask['name']);
+					$return .= GLB::generatePrimaryTask($endDate,$startDate,$primaryTask['name'],$primaryTask['description']);
 					$actualDate = $endDate+86400;
 					$actualDate = GLB::setToMondayIfWeekDay($actualDate);
 				}

@@ -1,3 +1,3 @@
 <?php
-	header("Location:projects.php"); 
+	require_once('php/inc.session.php');
 ?>

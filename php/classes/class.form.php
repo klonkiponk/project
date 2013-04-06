@@ -15,7 +15,7 @@ class FORM {
 		return $return;
 	}
 	public static function usersSelect(){
-		$sql = "SELECT uid,username FROM users";
+		$sql = "SELECT uid,username FROM users WHERE role <> 99";
 		$users = $GLOBALS['DB']->query($sql);
 		$return = '<select id="uid" name="uid" class="userSelect">';
 		while($user = $users->fetch_array())
@@ -30,7 +30,7 @@ class FORM {
 	
 	public static function userSelectWithActive($current)
 	{
-		$sql = "SELECT username,uid FROM users GROUP BY username ORDER BY username";
+		$sql = "SELECT username,uid FROM users WHERE role <> 99 GROUP BY username ORDER BY username";
 		$users = $GLOBALS['DB']->query($sql);
 		$return = '<select name="uid" class="userSelect">';
 		while($user = $users->fetch_array())
@@ -171,6 +171,20 @@ class FORM {
 		$return .= '</select>';
 		return $return;
 	}
+	
+	public static function prioSelector($value = ""){
+		$return = '<select class="prioSelector" name="priority">';
+		for ($i = 0; $i <= 9; $i++) {
+			if($i == $value){
+				$return .= '<option selected value="'.$i.'">'.$i.'</option>';
+			} else {
+				$return .= '<option value="'.$i.'">'.$i.'</option>';				
+			} 
+		}
+		$return .= '</select>';
+		return $return;
+	}
+	
 	public static function createNewTaskEditForm($pid){
 		$return = '<span class="taskToggler">+</span>';
 		$return .= '<form method="post" action="" class="newTask hidden">';
@@ -180,6 +194,7 @@ class FORM {
 		$return .= "bis&nbsp;&nbsp;&nbsp;&nbsp;";
 		$return .= FORM::endDateInput();
 		$return .= FORM::taskrolesSelect();
+		$return .= FORM::prioSelector();
 		$return .= FORM::submitButton("newTask","speichern","save");
 		$return .= '</form>';
 		

@@ -1,3 +1,4 @@
+<?php require_once('php/inc.sessionCheck.php');?>
 <!DOCTYPE html>
 <html>
 <?php include('php/html/inc.head.php')?>

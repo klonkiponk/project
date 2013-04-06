@@ -1,28 +1,51 @@
 .button {
 	border-radius:3px;
-	border:1px solid #666;
-	background:#fff;
-	color:#666;
-	font-family:"Dinot",Helvetica,Arial;
+	border:1px solid #333;
+	background:#666;
+	color:#fff;
+	font-family:"DIN";
 	display:inline-block;
 	width:180px;
 	line-height:normal;
-	height:25px !important;
+	height:24px !important;
 	padding:0;
-	font-size:16px;
+	font-size:14px;
 	text-align: center;
 	cursor:pointer;
+	vertical-align:middle;
+	margin-top: -7px;
+	&.save {
+		width:100px;
+		&:hover {
+
+		}
+	}
+	&.delete {
+		width:100px;
+		background:red;
+		border:1px solid #A60000;
+		color:#fff;
+		&:hover {
+			cursor: pointer;
+			background: #BF3030;
+			color:#fff;
+		}
+		&:active {
+			background: #A30000;
+		}
+	}
 }
 .button:hover
 {
- 	background:#666;
+ 	background:#444;
  	color:#fff;
+ 	cursor:pointer;
 }
 .button:active
 {
-	background:#333;
+	background:#222;
 }
 .button:focus
 {
-	background:#333;
+	background:#444;
 }
